@@ -1,0 +1,109 @@
+https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
+https://githowto.com/pt-BR
+
+git init
+	inicializa um novo repositorio
+
+git status
+	exibe o status do repositorio
+
+git add
+	adiciona as alterações para a area de trasferencia
+
+git commit
+	faz o commit dos intens da area de transferencia
+
+git commit --amend
+	para editar o último commit
+
+git log
+	visualizar detalhes dos commits feitos
+
+git log --name-status
+	visuzalizar detalhes dos commits feitos com mais precisão
+
+git log --pretty=oneline
+	visualizar detalhes dos commits feitos em uma linha
+
+git log --abbrev-commit
+	visualizar detalhes dos commits feitos abreviando o id do commit
+
+git diff
+	mostras as diferenças entre area de trabalho e area de trasnferencia
+
+git diff -w
+	mastra diferenças ignorando os espaços
+
+git reset HEAD <file>
+	retira últimas alterações adicionadas a area de transferencia
+
+git reset --soft HEAD^
+	desfaz o commit anterior
+
+git revert <commitid>
+	revert as alterações do commit especificado
+
+git rm <filename>
+	remove o arquivo da area de transferencia
+
+git rm -rf <directoryname> --cached
+	remove o diretório da area de transferencia sem remover da area de trabalho
+
+
+git branch
+	lista todas as branchs
+
+
+git branch <namebrach>
+	cria uma branch nova
+
+git branch -m <newnamebranch>
+	edita o nome da branch
+
+git branch -D <namebranch>
+	deleta uma branch
+
+git checkout <namebranch>
+	troca de branch
+
+git checkout -b <namebranch>
+	criar nova branch troca pra ela
+
+
+git remote -v
+	lista repositorios
+
+git remote add <origin> <repository>
+	adiciona um repositorio ao projeto
+
+git push <origin> <branch>
+	envia repositorio local para repositorio remoto
+
+git pull <origin> <branch>
+	pega os arquivos do repositorio para o local
+
+git merge <branch>
+	faz o merge do branch especificado com o merge atual
+
+git merge --abort
+	desfaz o último merge
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
