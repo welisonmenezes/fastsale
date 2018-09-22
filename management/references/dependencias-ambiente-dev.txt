@@ -1,0 +1,43 @@
+Sistema de controle de versão.
+
+- git
+    (sistema de controle local)
+    https://git-scm.com/downloads
+
+- github
+    (sistem de controle remoto [não é isntalável, basta criar uma conta online])
+    http://github.com/
+
+
+
+
+Programação do lado do servidor (Backend)
+
+- php
+    (linguagem de programação do lado do servidor)
+
+- mysql
+    (sistema de gerenciamento de banco de dados)
+
+- apache
+    (servidor web)
+
+    *(o Wamp OU o Xamp instala e configra todas as dependências acima)
+      - Wamp
+          http://www.wampserver.com/
+
+      - Xamp
+          https://www.apachefriends.org/pt_br/index.html
+
+
+
+IDEs e ferramentas de desenvolvimento
+
+- MySQL Workbench 
+    (trata-se de uma ide para manipular banco de dados mysql por meio de uma interface amigável)
+    https://www.mysql.com/products/workbench/
+
+- Sublime Text
+    (ide usada para criar código css, js, html, php, dentre outras linguagens)
+    https://www.sublimetext.com/3
+
