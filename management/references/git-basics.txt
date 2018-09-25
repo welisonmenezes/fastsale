@@ -76,8 +76,14 @@ git remote -v
 git remote add <origin> <repository>
 	adiciona um repositorio ao projeto
 
+git remote set-url <origin> <url>
+	edita a url do repositorio do alias especificado
+
 git push <origin> <branch>
 	envia repositorio local para repositorio remoto
+
+git push <origin> <branch> --delete
+	deleta uma branch do repositorio remoto
 
 git pull <origin> <branch>
 	pega os arquivos do repositorio para o local

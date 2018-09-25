@@ -37,7 +37,23 @@ IDEs e ferramentas de desenvolvimento
     (trata-se de uma ide para manipular banco de dados mysql por meio de uma interface amigável)
     https://www.mysql.com/products/workbench/
 
-- Sublime Text
+- Sublime Text **(é uma sugestão, podem usar outras opções de editores)
     (ide usada para criar código css, js, html, php, dentre outras linguagens)
     https://www.sublimetext.com/3
+
+
+
+
+Grência de projetos
+
+- Trello
+    (Trata-se de uma ferramenta para gerenciamento de projeto. [Basta criar uma conta online])
+    https://trello.com/
+
+
+
+Design
+
+- Photoshop
+    (Vamos usar o photoshop para fazer recorte de layout. Tentem instalar aí galera.)
 
