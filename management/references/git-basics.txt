@@ -69,6 +69,9 @@ git checkout <namebranch>
 git checkout -b <namebranch>
 	criar nova branch troca pra ela
 
+git checkout -b branch origin/branch
+	cria e faz checkout com a branch remota
+
 
 git remote -v
 	lista repositorios
