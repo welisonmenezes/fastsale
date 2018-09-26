@@ -1,0 +1,11 @@
+Explicação: 
+https://medium.com/lfdev-blog/como-escrever-requisitos-de-software-de-forma-simples-e-garantir-o-m%C3%ADnimo-de-erros-no-sistema-app-74df2ee241cc
+
+
+Vídeos: 
+https://www.youtube.com/watch?v=FeLtUI-zlVQ
+https://www.youtube.com/watch?v=Voi_rkPzuyk
+
+
+Modelo: 
+https://docs.google.com/document/d/13A3tojvNNlsDhUp-jRIC-VhfVzmvPQMj4th8fRnxGWs/edit
