@@ -1,8 +1,8 @@
 https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
 https://githowto.com/pt-BR
 
-git init
-	inicializa um novo repositorio
+    git init
+        inicializa um novo repositorio
 
 git status
 	exibe o status do repositorio
