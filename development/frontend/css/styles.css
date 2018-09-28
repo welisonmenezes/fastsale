@@ -1,130 +1,201 @@
-.btn {
-/*     border: 1px solid transparent; */
-	font-size: 14px;
-	margin: 5px;
-	display: inline-block;
-	text-align: center;
-	font-size: 16px;
-	border: 1px solid #333;
-	cursor: pointer;
-	background: transparent;
-	padding: 16px;
-	/* border-radius:16px; */	
-	/* background-color:#e3e3e3; */
-	border-color:#e3e3e3; 
+/* -------------------------------------------------------------------
+ * RESET CSS
+ * ------------------------------------------------------------------- */
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+a{
+    color: #649edb;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover {
+    color: #4479b1;
+}
+
+
+/* -------------------------------------------------------------------
+ * UTILITIES CLASS
+ * ------------------------------------------------------------------- */
+.justify-content-center {
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.justify-content-end {
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+.flex-column {
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+
+/* -------------------------------------------------------------------
+ * BUTTONS
+ * ------------------------------------------------------------------- */
+.btn{
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    background: transparent;
+    padding: 12px 14px;
+    border-radius: 0px; 
+    border: none;
+}
+
+.btn-lg{
+    font-size: 18px;
+    padding: 16px 18px; 
+}
+
+.btn-sm{
+    font-size: 14px;
+    padding: 8px 10px;
 }
 
 .btn-light{
     color: #333;
-	background-color: #e9e9e9; /* #e9e9e9 */
-	border-color:transparent;	
+    background-color: #e9e9e9;  
 }
-
 .btn-light:hover{
-	background-color: #dddddd;
-	/* border-color: #adadad; */
+    background-color: #dddddd;
 }
 
 .btn-dark{
     color: #fff;
-	background-color:#333333;
-	border-color:transparent;
+    background-color:#333333;
 }
-
 .btn-dark:hover{
-	background-color: #1a1a1a;	
+    background-color: #1a1a1a;  
 }
 
 .btn-primary{
     color: #fff;
-	background-color: #649edb;
-	/* border-color: #2e6da4; */
-	
+    background-color: #649edb;
 }
-
 .btn-primary:hover{
-	background-color: #4479b1;
-	/* border-color:#269abc; */
+    background-color: #4479b1;
 }
 
 .btn-secondary{
     color: #fff;
-	background-color: #747b82;
-	/* border-color: #2e6da4; */
-	
+    background-color: #747b82;
 }
-
 .btn-secondary:hover{
-	background-color: #4e555c;
-	/* border-color:#269abc; */
+    background-color: #4e555c;
 }
 
 .btn-warning{
     color: #fff;
-	background-color: #ffd350;
-	/* border-color: #eea236; */
+    background-color: #ffd350;
 }
-
 .btn-warning:hover{
-	background-color:#ffbd2f;
-	/* border-color: #d58512; */
-	
+    background-color:#ffbd2f;
 }
 
 .btn-info{
     color: #fff;
-	background-color: #54c2d3; 
-    /* border-color: #46b8da; */
+    background-color: #54c2d3; 
 }
-
 .btn-info:hover{
    background-color: #32a6bd;
-   /* border-color: #269abc; */
-}	
+}   
 
 .btn-success{
     color: #fff;
-	background-color: #54a967;
-	/* border-color: #46b8da; */
+    background-color: #54a967;
 }
-
 .btn-success:hover{
-	background-color:#328742;
-	/* border-color:#398439; */
+    background-color:#328742;
 }
 
 .btn-danger{
     color: #fff;
-	background-color:#d9414f; 
-	/* border-color:#d9534f; */
+    background-color:#d9414f; 
 }
-
 .btn-danger:hover{
-	background-color:#c6242e;
-	/* border-color:#ac2925; */
+    background-color:#c6242e;
 }
 
 .btn-link{
-	background-color:transparent;
-	border-color:transparent;
+    color: #649edb;
+    background-color:transparent;
 }
-
 .btn-link:hover{
-	color:#23527c;
-	text-decoration:underline;
+    text-decoration:underline;
 }
 
 .btn-block{
-	display:block;
-	width: 100%;
+    display:block;
+    width: 100%;
 }
 
-.btn-lg{
-	font-size: 26px;
-	padding: 18px 26px;	
+/* -------------------------------------------------------------------
+ * NAVS
+ * ------------------------------------------------------------------- */
+.nav{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
 }
 
-.btn-sm{
-	font-size: 10px;
-	padding: 5px 10px;
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+}
+.nav-link.disabled {
+    color: #6c757d;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+}
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+}
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover{
+    border-color: #e9ecef #e9ecef #dee2e6;
+}
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+.nav-tabs .nav-link.disabled {
+    color: #6c757d;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #fff;
+     background-color: #007bff; 
+}
+
+.nav-fill .nav-item {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    text-align: center;
 }
