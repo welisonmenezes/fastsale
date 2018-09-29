@@ -100,9 +100,12 @@ git merge --abort
 
 
 
+git config --global merge.tool <editorname>
+	adiciona o editor para resolver conflitos
 
 
-
+git mergetool
+	executa a ferramenta de merge configurada
 
 
 
