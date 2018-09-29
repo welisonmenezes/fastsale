@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Grid Flex</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<style>
+		.row{
+			background: #eee;
+			padding: 10px;
+		}
+		.row > div{
+			background: #ccc;
+			border: solid 1px #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-4">col-4</div>
+			<div class="col-4">col-4</div>
+		</div>
+		<br>
+		<div class="row justify-content-end">
+			<div class="col-4">col-4</div>
+			<div class="col-4">col-4</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col">col-2</div>
+			<div class="col-3 order-12">col-3</div>
+			<div class="col order-1">col-1</div>
+		</div>
+		<br>
+		<div class="row" style="height: 80px;">
+			<div class="col-5">col-5</div>
+			<div class="col-4 align-self-end">col-4</div>
+		</div>
+		<br>
+		<div class="row" style="height: 80px;">
+			<div class="col-5">col-5</div>
+			<div class="col-4 align-self-center">col-4</div>
+		</div>
+		<br>
+		<div class="row no-gutters">
+			<div class="col-3">col-3</div>
+			<div class="col-5">col-5</div>
+			<div class="col-4">col-4</div>
+		</div>
+	</div>
+</body>
+</html>
