@@ -577,6 +577,12 @@ a:hover {
 	border-radius: 10rem;
 }
 
+.badge-square{
+	padding-right: .6em;
+	padding-left: .6em;
+	border-radius: 0rem;
+}
+
 .badge-primary{
 	color:#fff;
 	background-color:#649edb;
