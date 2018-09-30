@@ -554,3 +554,118 @@ a:hover {
     -ms-flex-item-align: stretch !important;
     align-self: stretch !important;
 }
+
+/* -------------------------------------------------------------------
+ * BADGES
+ * ------------------------------------------------------------------- */
+ 
+ .badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+
+.badge-pill{
+	padding-right: .6em;
+	padding-left: .6em;
+	border-radius: 10rem;
+}
+
+.badge-primary{
+	color:#fff;
+	background-color:#649edb;
+}
+
+.badge-primary{
+	color:#fff;
+	background-color:#649edb;
+}
+
+.badge-primary[href]:hover, .badge-primary[href]:hover{
+	color:#fff;
+	text-decoration:none;
+	background-color:#4479b1;
+}
+
+.badge-secondary{
+	color:#fff;
+	background-color:#747b82;
+}
+
+.badge-secondary[href]:focus, .badge-secondary[href]:hover{
+	color:#fff;
+	text-decoration:none;
+	background-color:#4e555c;
+}
+
+.badge-success{
+	color:#fff;
+	background-color:#54a967;
+}
+
+.badge-success[href]:focus, .badge-success[href]:hover{
+	color:#fff;
+	text-decoration:none;
+	background-color:#328742;
+}
+
+.badge-danger{
+	color:#fff;
+	background-color:#d9414f;
+}
+
+.badge-danger[href]:focus, .badge-danger[href]:hover{
+	color:#fff;
+	text-decoration:none;
+	background-color:#c6242e;
+}
+
+.badge-warning{
+	color:#fff;
+	background-color:#ffd350;
+}
+
+.badge-warning[href]:focus, .badge-warning[href]:hover{
+	color:#fff;
+	text-decoration:none;
+	background-color:#ffbd2f;
+}
+
+.badge-info{
+	color:#fff;
+	background-color:#54c2d3;
+}
+
+.badge-info[href]:focus, .badge-info[href]:hover{
+	color:#fff;
+	text-decoration:none;
+	background-color:#32a6bd;
+}
+
+.badge-light{
+	color:#333333;
+	background-color:#e9e9e9;
+}
+
+.badge-light[href]:focus, .badge-light[href]:hover{
+	color:#333333;
+	text-decoration:none;
+	background-color:#dddddd;
+}
+
+.badge-dark{
+	color:#fff;
+	background-color:#333333;
+}
+
+.badge-dark[href]:focus, .badge-dark[href]:hover{
+	color:#fff;
+	text-decoration:none;
+	background-color:#1a1a1a;
+}
