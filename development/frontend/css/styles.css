@@ -676,4 +676,63 @@ a:hover {
 	background-color:#1a1a1a;
 }
 
-/* codigo do gabriel aqui */
+/* -------------------------------------------------------------------
+ * BARRAS DE PROGRESSO
+ * ------------------------------------------------------------------- */
+
+.progress {
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    background-color: #e9ecef;
+    border-radius: .45rem;
+    margin-bottom: 10px;    
+
+}
+
+.progress-bar {
+    display: -ms-flexbox;
+    display: flex;
+    color: #fff;
+    white-space: nowrap;
+    background-color: #007bff;
+    text-align: center;
+    justify-content: center;
+   
+}
+
+.bg-success{
+    background-color: #228B22;
+}
+
+.bg-info{
+    background: #008B8B;
+}
+
+.bg-warning{
+    background: #FFA500;
+}
+
+.bg-danger{
+    background: #FF0000;
+}
+
+.progress-bar-striped {
+    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-size: 1rem 1rem;
+
+}
+
+ .progress-bar-animated {
+    animation: progress-bar-stripes 1s linear infinite;
+
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
