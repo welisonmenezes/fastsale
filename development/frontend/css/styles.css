@@ -741,7 +741,7 @@ a:hover {
  * BORDER UTILITIES
  * ------------------------------------------------------------------- */
 
-.exemplo_bordas_utils [class^=borda] {
+.bd-example-borders-utils [class^=border] {
     display: inline-block;
     width: 5rem;
     height: 5rem;
@@ -749,143 +749,143 @@ a:hover {
     background-color: #f5f5f5;
 }
 
-.exemplo_bordas {
+.bd-example {
     position: relative;
     padding: 1rem;
     margin: 1rem -15px 0;
     border: solid #f8f9fa;
     border-width: .2rem 0 0;
 }
- /* adicionando as bordas */
- .borda {
+ /* adicionando as borders */
+ .border {
     border: 1px solid #dee2e6!important;
 }
 
-.borda-top {
+.border-top {
     border-top: 1px solid #dee2e6!important;
 }
 
-.borda-right {
+.border-right {
     border-right: 1px solid #dee2e6!important;
 }
 
-.borda-bottom {
+.border-bottom {
     border-bottom: 1px solid #dee2e6!important;
 }
 
-.borda-left {
+.border-left {
     border-left: 1px solid #dee2e6!important;
 }
 
-/* subtraindo as bordas */
+/* subtraindo as borders */
 
-.exemplo_bordas_subtrativas-0 [class^=borda] {
+.bd-example-borders-utils-0 [class^=border] {
     border: 1px solid #dee2e6;
 }
 
-.borda-0 {
+.border-0 {
     border: 0!important;
 }
 
-.borda-top-0 {
+.border-top-0 {
     border-top: 0!important;
 }
 
-.borda-right-0 {
+.border-right-0 {
     border-right: 0!important;
 }
 
-.borda-bottom-0 {
+.border-bottom-0 {
     border-bottom: 0!important;
 }
 
-.borda-left-0 {
+.border-left-0 {
     border-left: 0!important;
 }
 
-/* colorindo as bordas - temas */
+/* colorindo as borders - temas */
 
-.borda-primaria {
+.border-primary {
     border-color: #649edb!important;
 }
-.borda-primaria:hover {
+.border-primary:hover {
     border-color: #4479b1!important;
 }
-.borda-secundaria {
+.border-secondary {
     border-color: #747b82!important;
 }
-.borda-secundaria:hover {
+.border-secondary:hover {
     border-color: #4e555c!important;
 }
-.borda-sucesso {
+.border-success {
     border-color: #54a967!important;
 }
-.borda-sucesso:hover {
+.border-success:hover {
     border-color: #328742!important;
 }
-.borda-perigo {
+.border-danger {
     border-color: #d9414f!important;
 }
-.borda-perigo:hover {
+.border-danger:hover {
     border-color: #c6242e!important;
 }
-.borda-alerta {
+.border-warning {
     border-color: #ffd350!important;
 }
-.borda-alerta:hover {
+.border-warning:hover {
     border-color: #ffbd2f!important;
 }
-.borda-info {
+.border-info {
     border-color: #54c2d3!important;
 }
-.borda-info:hover {
+.border-info:hover {
     border-color: #32a6bd!important;
 }
-.borda-light {
+.border-light {
     border-color: #e9e9e9!important;
 }
-.borda-light:hover {
+.border-light:hover {
     border-color: #dddddd!important;
 }
-.borda-dark {
+.border-dark {
     border-color: #333333!important;
 }
-.borda-dark:hover {
+.border-dark:hover {
     border-color: #1a1a1a!important;
 }
-.borda-white {
+.border-white {
     border-color: #ffffff!important;
 }
-.borda-white:hover {
+.border-white:hover {
     border-color: #ffffff!important;
 }
 
-/* fazendo as bordas arredondadas */
+/* fazendo as borders rounds */
 
-.arredondada {
+.round {
     border-radius: .25rem!important;
 }
 
-.arredondada-top {
+.round-top {
     border-top-left-radius: .25rem!important;
     border-top-right-radius: .25rem!important;
 }
-.arredondada-right {
+.round-right {
     border-top-right-radius: .25rem!important;
     border-bottom-right-radius: .25rem!important;
 }
-.arredondada-bottom {
+.round-bottom {
     border-bottom-right-radius: .25rem!important;
     border-bottom-left-radius: .25rem!important;
 }
-.arredondada-left {
+.round-left {
     border-top-left-radius: .25rem!important;
     border-bottom-left-radius: .25rem!important;
 }
-.arredondada-circle {
+.round-circle {
     border-radius: 50%!important;
 }
-.arredondada-0 {
+.round-0 {
     border-radius: 0!important;
 }
 
@@ -893,19 +893,19 @@ a:hover {
  * SOMBRAS - SHADOWS
  * ------------------------------------------------------------------- */
 
- .sombra-nenhuma {
+ .shadow-none {
     box-shadow: none!important;
 }
 
-.sombra-pequena {
+.shadow-sm {
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
 }
 
-.sombra-comum {
+.shadow {
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
 
-.sombra-grande {
+.shadow-lg {
     box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
 }
 
