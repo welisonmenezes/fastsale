@@ -7,7 +7,7 @@ console.log("-------------------------------------------------\n");
 // OBJECT 'window'
 
 /*
- *	o obejeto window é o objeto pai de todos
+ *	o objeto window é o objeto pai de todos
  */
 console.log(window);
 
@@ -115,6 +115,19 @@ console.log("A quantidade de iframes na janele é: " + window.length);
 
 console.log("O pai desta janela é: ", window.parent.document.title);
 
+// SELF
+// retorna a janela corrente
+console.log("A janela corrente é: ", window.self.document.title);
+
+// TOP
+// retorna a janela pai de todos
+console.log("A janela pai de todos é: ", window.top.document.title);
+
+
+// NAME
+// retorna o nome da janela
+console.log("O nome da janela é: " + frames[0].name);
+
 
 
 // HISTSORY
@@ -168,11 +181,150 @@ console.log("A altura geral da janela é: " + window.outerHeight);
 // pageXOffset e pageYOffset (retorna a posição do scroll da janela horizonta e verticalmente respectivamente)
 
 console.log("A posição X da janela é: " + window.pageXOffset);
+console.log("A posição X da janela é: " + window.scrollX);
+
 console.log("A posição Y da janela é: " + window.pageYOffset);
+console.log("A posição Y da janela é: " + window.scrollY);
+
+// to IE 9 or earlier use: scrollLeft and scrollTop
 
 
 
-/*	 SCREEN OBJECT
+/*	LOCAL STORAGE
+ *  permite armazenar dados que persistirão mesmo após fechar o browser
+ */
+
+// salva um dado
+window.localStorage.setItem('nomeVariavel', 'valorVariavel');
+
+// le um dado
+console.log(window.localStorage.getItem("nomeVariavel"));
+
+// o total de itens
+console.log("O total de itens no localStorage é: " + window.localStorage.length);
+
+// apaga um dado
+window.localStorage.removeItem('nomeVariavel');
+
+// agora se tentar ler retornará 'null'
+console.log(window.localStorage.getItem("nomeVariavel"));
+
+
+/*	SESSION STORAGE
+ *  permite armazenar dados que não persistirão após fechar o browser
+ */
+
+// salva um dado
+window.sessionStorage.setItem('nomeVariavel', 'valorVariavel');
+
+// le um dado
+console.log(window.sessionStorage.getItem("nomeVariavel"));
+
+// apaga um dado
+window.sessionStorage.removeItem('nomeVariavel');
+
+// agora se tentar ler retornará 'null'
+console.log(window.sessionStorage.getItem("nomeVariavel"));
+
+// limpa todos os dados da session
+window.sessionStorage.clear();
+
+
+
+/*	LOCATION
+ *  contém informações sobre a url atual
+ */
+console.log("O objeto location: ", window.location);
+
+// propriedades
+console.log("A hash da url é: " + window.location.hash);
+console.log("O host da url é: " + window.location.host);
+console.log("O hostname da url é: " + window.location.hostname);
+console.log("A url completa é: " + window.location.href);
+console.log("A origin da url é: " + window.location.origin);
+console.log("O pathname da url é: " + window.location.pathname);
+console.log("A porta da url é: " + window.location.port);
+console.log("O protocolo da url é: " + window.location.protocol);
+
+// metodos
+// redireciona a janela para outra url
+//window.location.assign("https://www.w3schools.com");
+
+// redireciona a janela para outra url, porém não insere no history do navegador
+//window.location.replace("https://www.w3schools.com");
+
+
+// obs: atribuir uma nova url para o atributo href também faz um redirecionamento
+// window.location.href = "https://www.w3schools.com";
+
+// recarrega a janela do navegador (cuidado com loops de reload)
+// passando o parâmetro 'true' desconsidera o cache do navegador
+//window.location.reload();
+
+
+
+/*	 NAVIGATOR
  *
  */
 
+console.log("O objeto navigator: ", window.navigator);
+console.log("O nome do appCodeName é: " + navigator.appCodeName);
+console.log("O nome do appName é: " + navigator.appName);
+console.log("O nome do appVersion é: " + navigator.appVersion);
+console.log("Os cookies estão habilitados? " + navigator.cookieEnabled);
+console.log("O geolocation: ", navigator.geolocation);
+console.log("O idioma do browser é: " + navigator.language);
+console.log("Está online? " + navigator.onLine);
+console.log("A plataforma do browser é: " + navigator.platform);
+console.log("Browser Engine: " + navigator.product);
+console.log("O user agent header enviado pelo navegador é: " + navigator.userAgent);
+
+
+
+// geolocalization
+navigator.geolocation.getCurrentPosition(showPosition, showError);
+var watchPositionID = navigator.geolocation.watchPosition(showPosition, showError);
+
+function showPosition(position) {
+	console.log("latitude: " + position.coords.latitude + " longitude: " + position.coords.longitude);
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            console.log("User denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            console.log("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            console.log("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            console.log("An unknown error occurred.");
+            break;
+    }
+}
+
+navigator.geolocation.clearWatch(watchPositionID);
+
+
+
+/*	 SCREEN
+ *
+ */
+
+console.log("A altura disponível para a janela é: " + window.screen.availHeight);
+console.log("A largura disponível para a janela é: " + window.screen.availWidth);
+console.log("A altura total da janela é: " + window.screen.height);
+console.log("A largura total da janela é: " + window.screen.width);
+
+console.log("A profundidade de cores da janela é: " + window.screen.colorDepth);
+console.log("A profundidade de cores da janela é: " + window.screen.pixelDepth);
+
+// coordenadas do screen
+console.log("A coordenada X da janela é: " + window.screenLeft);
+console.log("A coordenada X da janela é: " + window.screenX); // firefox
+
+console.log("A coordenada Y da janela é: " + window.screenTop);
+console.log("A coordenada Y da janela é: " + window.screenY); // firefox

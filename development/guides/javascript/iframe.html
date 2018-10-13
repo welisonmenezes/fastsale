@@ -24,6 +24,10 @@
 
 
 		console.log("O pai deste iframe é: ", window.parent.document.title);
+
+		console.log("O iframe corrente é: ", window.self.document.title);
+
+		console.log("A janela pai de todos iframes é: ", window.top.document.title);
 	</script>
 </body>
 </html>
