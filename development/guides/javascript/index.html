@@ -4,6 +4,10 @@
 	<meta charset="utf-8">
 	<title>Guideline Javascript</title>
 	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
 		iframe{
 			display: block;
 			border: solid #e3e4e5 1px;
@@ -15,15 +19,83 @@
 		h1{
 			text-align: center;
 		}
+		div, hr, p, iframe, h1, h2, h3, h4, h5, h6{
+			margin-bottom: 15px;
+		}
+		button{
+			cursor: pointer;
+		}
+		.wrap{
+			max-width: 800px;
+			margin: 0 auto;
+			background-color: #e3e190;
+			padding: 50px 20px 100px 20px;
+		}
+		#MenuScroll{
+			width: 200px;
+			height: 60px;
+			padding: 10px 0;
+			text-align: center;
+			background: #d3d4e5;
+			position: fixed;
+			top: 10px;
+			left: 10px;
+			z-index: 9;
+		}
 	</style>
 </head>
 <body>
 
-	<h1 id="titulo-principal"></h1>
+	<div class="wrap">
+		<h1 id="titulo-principal"></h1>
 
-	<iframe src="iframe.html" name="iframe-1"></iframe>
+		<iframe src="iframe.html" name="iframe-1"></iframe>
 
-	<iframe src="iframe.html" name="iframe-2"></iframe>
+		<iframe src="iframe.html" name="iframe-2"></iframe>
+
+		<hr>
+
+		<div>
+			<button onclick="abreJanela()">Abrir Janela</button>
+			<button onclick="focaJanela()">Focar Janela</button>
+			<button onclick="fechaJanela()">Fecha Janela</button>
+			<button onclick="moveJanelaTo()">Move Janela 'To'</button>
+			<button onclick="moveJanelaBy()">Move Janela 'By'</button>
+			<button onclick="resizeJanelaTo()">Resize Janela 'To'</button>
+			<button onclick="resizeJanelaBy()">Resize Janela 'By'</button>
+		</div>
+
+		<hr>
+
+		<div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus illum ad distinctio numquam quos nesciunt unde quidem veniam repellat aliquam sunt adipisci atque, alias, laudantium cum quod blanditiis a itaque.</p>
+			<button onclick="pegaTextoSelecionado()">Pegar texto selecionado</button>
+		</div>
+
+		<hr>
+
+		<div>
+			<p>Clique abaixo para imprimir a página</p>
+			<button onclick="imprimir()">Imprimir</button>
+		</div>
+
+		<hr>
+
+		<div>
+			<p id="animateTest"></p>
+			<button onclick="repeatOften()">Iniciar Animação</button>
+			<button onclick="stopRepeatOften()">Parar Animação</button>
+		</div>
+
+		<div id="MenuScroll">
+			<div>
+				<button onclick="scrollarBy()">Scroll 'By'</button>
+			</div>
+			<div>
+				<button onclick="scrollarTo()">Scroll 'To'</button>
+			</div>
+		</div>
+	</div>
 	
 
 	<!--

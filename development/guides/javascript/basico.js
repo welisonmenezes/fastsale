@@ -27,6 +27,10 @@ var minhaVariavel = "valor da variável";
 
 console.log("A minha variável é: " + minhaVariavel);
 
+vairavelAntes = "Usada antes de declarar";
+console.log("Usando a variável antes: " + vairavelAntes);
+var vairavelAntes;
+
 
 
 // OPERADORES MATEMÁTICOS

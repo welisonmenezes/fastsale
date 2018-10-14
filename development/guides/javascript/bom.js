@@ -328,3 +328,170 @@ console.log("A coordenada X da janela é: " + window.screenX); // firefox
 
 console.log("A coordenada Y da janela é: " + window.screenTop);
 console.log("A coordenada Y da janela é: " + window.screenY); // firefox
+
+
+
+
+/*
+ *	MÉTODOS DO WINDOW
+ */
+
+// exibe uma caixa de mensagem na janela
+//window.alert("mensagem alerta");
+
+/*
+// caixa de confirmação
+var aceitaTermos = window.confirm("Aceita os Termos?");
+
+if(aceitaTermos){
+	console.log("Termos aceitos.");
+}
+else{
+	console.log("Termos não aceitos");
+}
+*/
+
+/*
+// caixa de entrada de dados
+var nomeUser = prompt("Digite seu nome", "Nome aqui");
+console.log("O nome do usuário é: " + nomeUser);
+*/
+
+
+// codigicar e decodificar na base-64 
+var str = "Hello World!";
+var enc = window.btoa(str);
+console.log("A string codificada é: " + enc);
+var dec = window.atob(enc);
+console.log("A string decodificada é: " + dec);
+
+
+// manipular janelas
+var myWindow;
+function abreJanela(){
+	// open (abere uma janela)
+	myWindow = window.open("iframe-2.html", "", "width=500, height=400, top=100, left=300");   // Opens a new window
+
+	// blur (tira o foco da janela)
+	myWindow.blur();
+}
+
+function focaJanela(){
+	// focus (coloca o foco na janela)
+	myWindow.focus();
+}
+
+function fechaJanela(){
+	// close (fecha a janela)
+	myWindow.close();
+}
+
+function moveJanelaTo(){
+	myWindow.moveTo(100, 100);
+}
+
+function moveJanelaBy(){
+	myWindow.moveBy(100, 100);
+}
+
+function resizeJanelaTo(){
+	myWindow.resizeTo(600, 200);
+}
+
+function resizeJanelaBy(){
+	myWindow.resizeBy(200, 100);
+}
+
+// temporizadores
+var intervalo = setInterval(function(){
+	console.log("Executado a cada intervalo de 3 segundos");
+}, 3000);
+
+
+var periodo = setTimeout(function(){
+	console.log("Executo após um período de 3 segundos");
+}, 3000);
+
+
+setTimeout(function(){
+	// removendo o intervalo
+	clearInterval(intervalo);
+
+	// removendo o periodo
+	clearTimeout(periodo);
+}, 9000);
+
+
+var tituloPrincipal = document.getElementById('titulo-principal');
+var computedStyle = getComputedStyle(tituloPrincipal);
+console.log(computedStyle);
+
+// pegando o valor de uma propriedade css
+console.log("A font-size é: " + computedStyle.getPropertyValue('font-size'));
+console.log("A font-size é: " + computedStyle.fontSize);
+
+
+function pegaTextoSelecionado(){
+	var selObj = window.getSelection(); 
+	var selectedText = selObj.toString();
+	console.log(selectedText);
+}
+
+
+// retorna o objeto mediaQueryList
+
+var mediaQuery = window.matchMedia("(max-width: 700px)");
+console.log(mediaQuery.matches);
+console.log(mediaQuery.media);
+
+function listenerMedia(mediaQuery){
+	if(mediaQuery.matches){
+		console.log("Atende as condiçoes da media query");
+	}
+	else{
+		console.log("Não atende as condiçoes da media query");
+	}
+}
+listenerMedia(mediaQuery);
+mediaQuery.addListener(listenerMedia);
+
+
+
+// print (imprimir página)
+function imprimir(){
+	window.print();
+}
+
+
+
+
+var globalID;
+
+function repeatOften() {
+
+	var element = document.getElementById("animateTest");
+	var content = element.textContent;
+
+	element.innerHTML = content + "! ";
+  
+	globalID = requestAnimationFrame(repeatOften);
+}
+
+function stopRepeatOften(){
+	cancelAnimationFrame(globalID);
+}
+
+
+// stop
+// interrompe o carregamento da página
+//window.stop();
+
+
+// scrolling
+function scrollarBy(){
+	window.scrollBy(0, 25);
+}
+
+function scrollarTo(){
+	window.scrollTo(0, 25);
+}
