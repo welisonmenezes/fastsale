@@ -22,6 +22,9 @@
 		div, hr, p, iframe, h1, h2, h3, h4, h5, h6{
 			margin-bottom: 15px;
 		}
+		h1, h2, h3, h4, h5, h6{
+			text-align: center;
+		}
 		button{
 			cursor: pointer;
 		}
@@ -41,6 +44,9 @@
 			top: 10px;
 			left: 10px;
 			z-index: 9;
+		}
+		.red{
+			color: red;
 		}
 	</style>
 </head>
@@ -87,6 +93,54 @@
 			<button onclick="stopRepeatOften()">Parar Animação</button>
 		</div>
 
+		<hr>
+
+		<div>
+			<h2 id="titulo-adotado">Recebe título adotado</h2>
+			<div>
+				<button onclick="adotaElemento()">adotar elemento</button>
+				<button onclick="importaElemento()">importar elemento</button>
+			</div>
+		</div>
+
+		<hr>
+
+		<div>
+			<ul>
+				<li>
+					<a href="#">teste 1</a>
+				</li>
+				<li>
+					<a>teste 2</a>
+				</li>
+				<li>
+					<a href="#">teste 3</a>
+				</li>
+			</ul>
+		</div>
+
+		<hr>
+
+		<div>
+			<h2>Eventos dinâmicos</h2>
+			<div>
+				<button class="evento-click">evento click</button>
+				<button onclick="removeEvento()">remover evento</button>
+				<button id="tenhoClick">evento embutido</button>
+				<button onclick="removeEventoEmbutido()">remover evento embutido</button>
+			</div>
+		</div>
+
+		<hr>
+
+		<div>
+			<h2 id="atributoDinamico">meu atributo será dinâmico</h2>
+			<div>
+				<button id="eventoCustomizado">evento Customizado</button>
+				<button id="eventoCustomizado2">evento Customizado 2</button>
+			</div>
+		</div>
+
 		<div id="MenuScroll">
 			<div>
 				<button onclick="scrollarBy()">Scroll 'By'</button>
@@ -116,12 +170,12 @@
 		usualmente arquivos javascript são invocados no final do documento,
 		antes do fechamento da tag body.
 	-->
+	
 	<script src="basico.js"></script>
 	<script src="condicionais.js"></script>
 	<script src="lacos.js"></script>
 	<script src="funcoes.js"></script>
-
-
 	<script src="bom.js"></script>
+	<script src="dom.js"></script>
 </body>
 </html>
