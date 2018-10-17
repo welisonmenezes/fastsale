@@ -147,3 +147,33 @@ console.log("5 < 3 e 5 < 6: " + operadorEE);
 // apenas um precisa retornar verdadeiro pro retorno ser verdadeiro
 var operadorOU = 5 < 3 || 5 < 6;
 console.log("5 < 3 ou 5 < 6: " + operadorOU);
+
+
+// tratamento de erros
+try {
+    // codigo a ser executado
+    console.log("sem erro");
+}
+catch(err) {
+   	// se código do bloco try der erro entra qui
+   	console.log("putz deu erro");
+} 
+finally {
+    // sempre entra aqui
+    console.log("sempre vou executar");
+}
+
+
+// disparando erro customizado
+try{
+	console.log("teste throw");
+	throw "mensagem de erro";
+}
+catch(err) {
+   	console.log(err);
+} 
+
+
+// debugger
+// abaixo interromperia a execução do script para fins de debug
+// debugger;

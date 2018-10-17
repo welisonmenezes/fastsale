@@ -7,6 +7,25 @@ console.log("-------------------------------------------------\n");
 var activeElement = document.activeElement.tagName;
 console.log("O elemento ativo é: " + activeElement);
 
+// defaultView (retorna o window do docuemnto)
+dv = document.defaultView;
+console.log("Titulo do defaultView: " + dv.document.title);
+
+// documentElement (retorna o elemento html do documento)
+console.log("O document element é: " + document.documentElement.nodeName);
+
+// doctype (retorna o doctype do documento)
+console.log("o doctype do documento é: ", document.doctype);
+
+// documentUri (seta ou retorna o location do documento)
+console.log("o documentUri do documento é: " + document.documentURI);
+
+// domain (retorna o domínio do documento)
+console.log("O domínio do doucmento é: " + document.domain);
+
+// embeds (retorna os embeds do documento)
+console.log("Os embeds do documento são: ", document.embeds);
+
 
 
 
@@ -135,3 +154,45 @@ eventoCustomizado2.onclick = function(){
 	eventoCustomizado2.dispatchEvent(event2);
 }
 //eventoCustomizado2.click();
+
+
+
+// CRIAR COMENTÁRIOS
+var comentario = document.createComment("Meu comentário aqui");
+document.getElementById("recebeComentario").appendChild(comentario);
+
+
+// CRAR ELEMENTOS HTML DINAMICAMENTE
+var imagemDinamica = document.createElement("img");
+imagemDinamica.src = "https://api.thecatapi.com/v1/images/search?format=src&size=small";
+document.getElementById("imagemDinamica").appendChild(imagemDinamica);
+
+
+// CRIAR CONTEÚDO PARA ELEMNTO (createTextNode)
+document.getElementById("textDinamico").innerHTML = "<p>texto adicionado via 'innerHTML'</p>";
+//document.getElementById("textDinamico").textContent = "<p>texto adicionado via 'textContent'";
+document.getElementById("textDinamico").appendChild(document.createTextNode("<p>texto adicionando via 'createTextNode'</p>"));
+
+
+
+// FRAGMENTO DE DOCUMENTO
+// o uso desse recuro resulta e melhor performance
+var fragmento = document.createDocumentFragment();
+var paragrafo = document.createElement("p");
+paragrafo.innerHTML = "Paragrafo teste";
+fragmento.appendChild(paragrafo);
+document.getElementById("recebeFragmento").appendChild(fragmento);
+console.log(fragmento);
+
+
+// DOCUMENT OU ELEMENTS EDITÁVEIS 
+// seta o documento em modo editável (on|off)
+document.designMode = "off";
+
+// seta o elemento como editável (true|false)
+document.getElementById("elementoEditavel").contentEditable = true;
+
+// EXECCOMANDO
+function addBold(){
+	document.execCommand('bold', true, null);
+}
