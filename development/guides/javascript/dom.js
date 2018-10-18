@@ -3,6 +3,41 @@ console.log("Início arquivo 'dom.js'\n");
 console.log("-------------------------------------------------\n");
 
 
+// SELETORES
+
+// pegar pelo id
+var selecionadoPorId = document.getElementById("titulo-principal");
+console.log("O elemento selecionado por ID é: ", selecionadoPorId);
+
+// pegar pela classe
+var selecionadoPorClass = document.getElementsByClassName("titulo-classe");
+console.log("Os elementos selecionados pela Classe são: ", selecionadoPorClass);
+
+// pegar pelo nome
+var selecionadoPorNome = document.getElementsByName("nomeInput");
+console.log("O elemento selecionado pelo nome é: ", selecionadoPorNome);
+
+// pegar pelo nome da tag
+var selecionadoPelaTag = document.getElementsByTagName("button");
+console.log("Os elementos selecionados pela tag são: ", selecionadoPelaTag);
+
+// pegar por seletor css (só retorna o primeiro elemento que encontrar)
+var selecionadoPorQuery = document.querySelector("div > p, h2");
+console.log("O elemento selecionado por query é: ", selecionadoPorQuery);
+
+// pegar todos elementos por seletor css
+var selecionadosPorQuery = document.querySelectorAll("div > p, h2");
+console.log("Os elementos selecionados por query são: ", selecionadosPorQuery);
+
+
+function mostraTituloIframe(){
+	console.log(window.frames[0].document.querySelectorAll("h1"));
+	document.getElementById("tituloIframeAqui").innerHTML = window.frames[0].document.querySelectorAll("h1")[0].textContent;
+}
+
+
+
+
 // activeElement (pega o elemento focused)
 var activeElement = document.activeElement.tagName;
 console.log("O elemento ativo é: " + activeElement);
@@ -195,4 +230,83 @@ document.getElementById("elementoEditavel").contentEditable = true;
 // EXECCOMANDO
 function addBold(){
 	document.execCommand('bold', true, null);
+}
+
+
+// FORMS (retorna os formulários do documento)
+console.log("A quantidade de formuláriso é: " + document.forms.length);
+
+if(document.forms.length){
+	console.log("O action do formulário é: " + document.forms[0].action);
+	console.log("O method do formulário é: " + document.forms[0].method);
+	console.log("O name do formulário é: " + document.forms[0].name);
+	console.log("O target do formulário é: " + document.forms[0].target);
+	console.log("O formulário é validado? " + document.forms[0].noValidate);
+}
+
+function enviaFormulario(){
+	document.forms[0].submit();
+}
+
+function resetaFormulario(){
+	document.forms[0].reset();
+}
+
+
+
+// fullscreenElement
+
+function ficarFull(){
+	openFullscreen(document.getElementById("fullScreen"));
+}
+
+function sairFull(){
+	closeFullscreen();
+}
+
+function elFull(){
+	console.log("O elemento que está fullScreen é: ", elFullscreen());
+}
+
+function isFull(){
+	console.log("O fullScreen está habilitado? " + isFullscreenEnable());
+}
+
+function openFullscreen(elem) {
+	if (elem.requestFullscreen) {
+		elem.requestFullscreen();
+	} else if (elem.mozRequestFullScreen) { /* Firefox */
+		elem.mozRequestFullScreen();
+	} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+		elem.webkitRequestFullscreen();
+	} else if (elem.msRequestFullscreen) { /* IE/Edge */
+		elem.msRequestFullscreen();
+	}
+}
+
+function closeFullscreen() {
+	if (document.exitFullscreen) {
+		document.exitFullscreen();
+	} else if (document.mozCancelFullScreen) { /* Firefox */
+		document.mozCancelFullScreen();
+	} else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+		document.webkitExitFullscreen();
+	} else if (document.msExitFullscreen) { /* IE/Edge */
+		document.msExitFullscreen();
+	}
+}
+
+
+function elFullscreen(){
+	return  document.fullscreenElement || /* Standard syntax */
+  			document.webkitFullscreenElement || /* Chrome, Safari and Opera syntax */
+  			document.mozFullScreenElement ||/* Firefox syntax */
+ 			document.msFullscreenElement;
+}
+
+function isFullscreenEnable(){
+	return  document.fullscreenEnabled || /* Standard syntax */
+			document.webkitFullscreenEnabled || /* Chrome, Safari and Opera syntax */
+			document.mozFullScreenEnabled ||/* Firefox syntax */
+			document.msFullscreenEnabled/* IE/Edge syntax */
 }

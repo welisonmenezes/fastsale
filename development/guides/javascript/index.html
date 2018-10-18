@@ -56,7 +56,7 @@
 <body>
 
 	<div class="wrap">
-		<h1 id="titulo-principal"></h1>
+		<h1 id="titulo-principal" class="titulo-classe"></h1>
 
 		<iframe src="iframe.html" name="iframe-1"></iframe>
 
@@ -99,7 +99,7 @@
 		<hr>
 
 		<div>
-			<h2 id="titulo-adotado">Recebe título adotado</h2>
+			<h2 id="titulo-adotado" class="titulo-classe">Recebe título adotado</h2>
 			<div>
 				<button onclick="adotaElemento()">adotar elemento</button>
 				<button onclick="importaElemento()">importar elemento</button>
@@ -125,7 +125,7 @@
 		<hr>
 
 		<div>
-			<h2>Eventos dinâmicos</h2>
+			<h2 class="titulo-classe">Eventos dinâmicos</h2>
 			<div>
 				<button class="evento-click">evento click</button>
 				<button onclick="removeEvento()">remover evento</button>
@@ -155,7 +155,7 @@
 		<hr>
 
 		<div id="imagemDinamica">
-			Vou receber uma imagem dinamicamente<br>
+			<p>Vou receber uma imagem dinamicamente</p>
 		</div>
 
 		<hr>
@@ -163,6 +163,29 @@
 		<div id="textDinamico"></div>
 
 		<hr>
+
+		<form action="#" name="formularioTeste">
+			<h2>Sou um formulário</h2>
+			<input type="text" name="nomeInput" placeholder="Digite algo">
+			<button type="button" onclick="enviaFormulario()">Enviar</button>
+			<button type="button" onclick="resetaFormulario()">Resetar</button>
+		</form>
+
+		<hr>
+
+		<div id="fullScreen" style="background: #fff;">
+			<button type="button" onclick="ficarFull()">Ficar full</button>
+			<button type="button" onclick="sairFull()">Sair full</button>
+			<button type="button" onclick="elFull()">Elemento full</button>
+			<button type="button" onclick="isFull()">Está full?</button>
+		</div>
+
+		<hr>
+
+		<div>
+			<button type="button" onclick="mostraTituloIframe()">Mostrar título iframe</button>
+			<div id="tituloIframeAqui"></div>
+		</div>
 		
 		<button onclick="addBold()">adiciona bold</button>
 		<div id="elementoEditavel">Serei editável</div>
