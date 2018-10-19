@@ -31,6 +31,10 @@
 		img{
 			height: 200px;
 		}
+		a:focus{
+			color: purple;
+			font-size: 20px;
+		}
 		.wrap{
 			max-width: 800px;
 			margin: 0 auto;
@@ -217,6 +221,32 @@
 		<div>
 			<button type="button" onclick="escreverAlgo()">Escreva algo com write e writeln</button>
 		</div>
+
+		<hr>
+
+		<div>
+			<a href="http://www.google.com" id="linkAccesskey" target="_blank" title="titulo link">Ir para o google</a>
+			<button type="button" onclick="pegarFoco()">pegar foco</button>
+			<button type="button" onclick="tirarFoco()">tirar foco</button>
+			<button type="button" onclick="simulaClick()">simular click</button>
+		</div>
+
+		<hr>
+
+		<div id="testeChildren" class="classeTeste classeTeste2 classeTeste3" title="Titulo teste">
+			<div>1º filho</div>
+			1º texto fora
+			<div>
+				<p>filho 2</p>
+			</div>
+			<div>
+				<p>
+					<span>filho 3</span>
+				</p>
+			</div>
+			2º texto fora
+			<div>último filho</div>
+		</div>
 		
 		<button onclick="addBold()">adiciona bold</button>
 		<div id="elementoEditavel">Serei editável</div>
@@ -257,5 +287,6 @@
 	<script src="funcoes.js"></script>
 	<script src="bom.js"></script>
 	<script src="dom.js"></script>
+	<script src="dom-elements.js"></script>
 </body>
 </html>
