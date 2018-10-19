@@ -39,6 +39,10 @@ function mostraTituloIframe(){
 
 
 // activeElement (pega o elemento focused)
+
+console.log(document.querySelector("input"))
+document.querySelector("input").setAttribute('tabindex','0');
+document.querySelector("input").focus();
 var activeElement = document.activeElement.tagName;
 console.log("O elemento ativo é: " + activeElement);
 
@@ -58,8 +62,26 @@ console.log("o documentUri do documento é: " + document.documentURI);
 // domain (retorna o domínio do documento)
 console.log("O domínio do doucmento é: " + document.domain);
 
+// referrer (retorna a url da página que carregou o documento (através de um link por ex.))
+console.log("O referrer do documento é: " + document.referrer);
+
+// url
+console.log("A url do documento é: " + document.URL);
+
+// base uri (não suportado no IE)
+console.log("A url absoluta do documento é: " + document.baseURI);
+
 // embeds (retorna os embeds do documento)
 console.log("Os embeds do documento são: ", document.embeds);
+
+// implamantation
+console.log("O DOMimplementation do documento é: ", document.implementation);
+
+// última modificação
+console.log("A última modificação do documento foi: " + document.lastModified);
+
+// title
+console.log("O título do documento é: " + document.title);
 
 
 
@@ -95,12 +117,11 @@ var links = document.links;
 console.log(links);
 
 
-// base uri (não suportado no IE)
-console.log("A url absoluta do documento é: " + document.baseURI);
-
-
 // BODY (retorna o body do documento)
 document.body.style.backgroundColor = "#f4f4f4";
+
+// HEAD (retorna o head do documento)
+console.log("O head do documento é: ", document.head);
 
 
 // EVENTOS
@@ -254,6 +275,39 @@ function resetaFormulario(){
 
 
 
+// IMAGES 
+console.log("A quantidade de images é: " + document.images.length);
+
+if(document.images.length){
+	console.log("A altura da imagem é: " + document.images[0].height);
+	console.log("A largura da imagem é: " + document.images[0].width);
+	console.log("A altura natural da imagem é: " + document.images[0].naturalHeight);
+	console.log("A largura natural da imagem é: " + document.images[0].naturalWidth);
+	console.log("O alt da imagem é: " + document.images[0].alt);
+	console.log("O src da imagem é: " + document.images[0].src);
+	console.log("A imagem é descendente de uma tag <a>? " + document.images[0].isMap);
+}
+
+function usarMap() {
+    document.images[0].useMap = "#mapImagemTest";
+}
+
+
+// SCRIPTS
+
+console.log("A quantidade de scripts tag é: " + document.scripts.length);
+if(document.scripts.length){
+	console.log("O script é assíncrono? " + document.scripts[0].async);
+	console.log("O charset do script é : " + document.scripts[0].charset);
+	console.log("O crossOrigin do script é : " + document.scripts[0].crossOrigin);
+	console.log("O defer script é : " + document.scripts[0].defer);
+	console.log("O src script é : " + document.scripts[0].src);
+	console.log("O conteúdo do script é : ", document.scripts[0].text);
+	console.log("O tipo do script é : " + document.scripts[0].type);
+}
+
+
+
 // fullscreenElement
 
 function ficarFull(){
@@ -309,4 +363,87 @@ function isFullscreenEnable(){
 			document.webkitFullscreenEnabled || /* Chrome, Safari and Opera syntax */
 			document.mozFullScreenEnabled ||/* Firefox syntax */
 			document.msFullscreenEnabled/* IE/Edge syntax */
+}
+
+
+// has focus
+
+
+window.onblur = function(){
+	console.log("O docuemnto tem foco? " + document.hasFocus());	
+}
+
+window.onfocus = function(){
+	console.log("O docuemnto tem foco? " + document.hasFocus());	
+}
+
+
+// normalize (junta os textNodes num só)
+
+var normalizarDiv = document.getElementById("normalizarDiv");
+normalizarDiv.appendChild( document.createTextNode("Part 1 ") );
+normalizarDiv.appendChild( document.createTextNode("Part 2 ") );
+
+
+console.log("A quantidade de childNodes é: " + normalizarDiv.childNodes.length);
+
+function normalizarDocumento(){
+	normalizarDiv.normalize();
+	console.log("A quantidade de childNodes é: " + normalizarDiv.childNodes.length);
+}
+
+
+// OPEN, CLOSE, WRITE E WRITELN
+
+
+
+function escreverAlgo(){
+	document.open(); // abre pra escrita no documento
+	document.writeln("texto writeln"); // escreve com quebra de linha
+	document.write("texto write"); // escreve sem quebra de linha
+	document.close(); // fecha para escrita no documento
+}
+
+
+// readyState (retorna o estado do documento)
+document.onreadystatechange = function () {
+	if(document.readyState == "uninitialized"){
+		console.log("documento não começou a carregar");
+	}
+	if(document.readyState == "loading"){
+		console.log("documento está carregando");
+	}
+	if(document.readyState == "loaded"){
+		console.log("documento está carregado");
+	}
+	if(document.readyState == "interactive"){
+		console.log("documento já está interativo");
+	}
+	if(document.readyState == "complete"){
+		console.log("docuemnto completamente carregado");
+	}
+}
+
+function addIframeDinamicamente(){
+	var iframe1 = document.createElement("iframe");
+	iframe1.src = "teste.php?"+Math.random();
+	iframe1.id = "iframe-dinamico";
+	document.getElementById("recebeIframe").appendChild(iframe1);
+	
+
+
+	console.log(iframe1);
+	
+	
+	iframe1.onload = function(){
+		var iframeDoc = iframe1.contentDocument || iframe1.contentWindow.document;
+		console.log(iframeDoc.getElementById("titulo-principal"));
+	}
+
+	// simulando em um iframe
+	var timer = setInterval(function() {
+	    var state = iframe1.contentWindow.document.readyState;
+	    if (state =="complete") { clearInterval(timer); }
+	    console.log(state);    
+	}, 100);
 }
