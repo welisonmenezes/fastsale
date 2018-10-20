@@ -1,0 +1,54 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+iframe{
+	display: block;
+	border: solid #e3e4e5 1px;
+	height: 150px;
+	max-width: 500px;
+	margin: 0 auto;
+	background: #ccc;
+}
+div, hr, p, iframe, h1, h2, h3, h4, h5, h6{
+	margin-bottom: 15px;
+}
+h1, h2, h3, h4, h5, h6{}
+h1{
+	margin-bottom: 50px;
+	border-bottom: 1px solid #333;
+}
+button{
+	cursor: pointer;
+}
+img{
+	height: 200px;
+}
+a:focus{
+	color: purple;
+	font-size: 20px;
+}
+em{
+	background: #e3e4e3;
+	color: #333;
+}
+.wrap{
+	max-width: 800px;
+	margin: 0 auto;
+	background-color: #e3e190;
+	padding: 50px 20px 100px 20px;
+}
+#MenuScroll{
+	width: 200px;
+	height: 60px;
+	padding: 10px 0;
+	text-align: center;
+	background: #d3d4e5;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 9;
+}
+.red{
+	color: red;
+}

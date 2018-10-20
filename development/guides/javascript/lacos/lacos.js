@@ -1,13 +1,11 @@
-console.log("\n\n\n-------------------------------------------------\n");
-console.log("Início arquivo 'lacos.js'\n");
-console.log("-------------------------------------------------\n");
+(function(){
 
 // WHILE
 var contadorWhile = 0;
 
 while(contadorWhile < 5){
 
-	console.log("O contador while vale: " + contadorWhile);
+	mostrarNaTela("O contador while vale:<b> " + contadorWhile + "</b>");
 
 	contadorWhile++;
 }
@@ -23,7 +21,7 @@ var contadorDoWhile = 5;
 
 do{
 
-	console.log("O contador do while vale: " + contadorDoWhile);
+	mostrarNaTela("O contador do while vale:<b> " + contadorDoWhile + "</b>");
 
 	contadorDoWhile++;
 
@@ -34,7 +32,7 @@ do{
 
 for(var i = 0; i < 5; i++){
 
-	console.log("O contador do for vale: " + i);
+	mostrarNaTela("O contador for vale:<b> " + i + "</b>");
 
 }
 
@@ -45,18 +43,18 @@ var frutas = ["maçã", "uva", "morango", "limão"];
 
 for(var x = 0; x < frutas.length; x++){
 
-	console.log("A fruta da vez é: " + frutas[x]);
+	mostrarNaTela("A fruta da vez é:<b> " + frutas[x] + "</b>");
 
 }
 
 // outra opção (for in)
 for(x in frutas){
-	console.log("Agora a fruta é: " + frutas[x]);
+	mostrarNaTela("Agora a fruta é:<b> " + frutas[x] + "</b>");
 }
 
 // outra opção (for of)
 for(fruta of frutas){
-	console.log("A fruta de frutas é: " + fruta);
+	mostrarNaTela("A fruta de frutas é:<b> " + fruta + "</b>");
 }
 
 
@@ -75,6 +73,8 @@ for(var a = 0; a < 100; a++){
 		break;
 	}
 
-	console.log("Index do loop break e continue: " + a);
+	mostrarNaTela("O index do loop break e continue é:<b> " + a + "</b>");
 
 }
+
+})();

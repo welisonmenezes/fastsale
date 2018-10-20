@@ -1,6 +1,4 @@
-console.log("\n\n\n-------------------------------------------------\n");
-console.log("Início arquivo 'basico.js'\n");
-console.log("-------------------------------------------------\n");
+(function(){
 
 // COMENTÁRIOS NÃO SERÃO EXECUTADOS PELO NAVEGADOR
 
@@ -25,10 +23,11 @@ var minhaVariavel = "valor da variável";
 	minhaVariavel = 5;
 	minhaVariavel = false;
 
-console.log("A minha variável é: " + minhaVariavel);
+mostrarNaTela("O valor da variável 'minhaVariavel' é:<b> " + minhaVariavel + "</b>");
+
 
 vairavelAntes = "Usada antes de declarar";
-console.log("Usando a variável antes: " + vairavelAntes);
+mostrarNaTela("O valor da variável 'vairavelAntes' é:<b> " + vairavelAntes + "</b>");
 var vairavelAntes;
 
 
@@ -36,63 +35,73 @@ var vairavelAntes;
 // OPERADORES MATEMÁTICOS
 
 var soma = 2 + 4;
-console.log("A soma é: " + soma);
+mostrarNaTela("O valor da variável 'soma' é:<b> " + soma + "</b>");
 
 var concatenacao = "legal " + "fera!";
-console.log("A concatenação é: " + concatenacao);
+mostrarNaTela("O valor da variável 'concatenacao' é:<b> " + concatenacao + "</b>");
 
 var subtracao = 5 - 3;
-console.log("A subtração é: " + subtracao);
+mostrarNaTela("O valor da variável 'subtracao' é:<b> " + subtracao + "</b>");
+
 
 var divisao = 10 / 5;
-console.log("A divisão é: " + divisao);
+mostrarNaTela("O valor da variável 'divisao' é:<b> " + divisao + "</b>");
 
 var multiplicacao = 12 * 3;
-console.log("A multiplicação é: " + multiplicacao);
+mostrarNaTela("O valor da variável 'multiplicacao' é:<b> " + multiplicacao + "</b>");
+
+var modulo = 14 % 3;
+mostrarNaTela("O valor da variável 'modulo' é:<b> " + modulo + "</b>");
 
 
 // OPERADORES DE ATRIBUIÇÃO
 
 var atribuiNumero = 5;
+mostrarNaTela("O valor da variável 'atribuiNumero' é:<b> " + atribuiNumero + "</b>");
 
 /*
 	pega o numero atual da variavel e soma com o valor da direita
 	O mesmo que atribuiNumero = atribuiNumero + 5;
 */ 
 atribuiNumero += 5;
-console.log("Atribui numero com +=: " + atribuiNumero);
+mostrarNaTela("Atribui numero com +=:<b> " + atribuiNumero + "</b>");
 
 /*
 	pega o numero atual da variavel e subtrai com o valor da direita
 	O mesmo que atribuiNumero = atribuiNumero - 5;
 */ 
 atribuiNumero -= 3;
-console.log("Atribui numero com -=: " + atribuiNumero);
+mostrarNaTela("Atribui numero com -=:<b> " + atribuiNumero + "</b>");
 
 /*
 	pega o numero atual da variavel e multiplica com o valor da direita
 	O mesmo que atribuiNumero = atribuiNumero * 5;
 */ 
 atribuiNumero *= 2;
-console.log("Atribui numero com *=: " + atribuiNumero);
+mostrarNaTela("Atribui numero com *=:<b> " + atribuiNumero + "</b>");
 
 /*
 	pega o numero atual da variavel e divide com o valor da direita
 	O mesmo que atribuiNumero = atribuiNumero / 5;
 */ 
 atribuiNumero /= 3;
-console.log("Atribui numero com /=: " + atribuiNumero);
+mostrarNaTela("Atribui numero com /=:<b> " + atribuiNumero + "</b>");
+
+atribuiNumero = 10;
+atribuiNumero %= 3;
+mostrarNaTela("Atribui numero com %=:<b> " + atribuiNumero + "</b>");
 
 
 var incrementa = 1;
+mostrarNaTela("O valor da variável 'incrementa' é:<b> " + incrementa + "</b>");
 
 // incrementa mais 1
 incrementa++;
-console.log("Incrementar com ++ deu: " + incrementa);
+mostrarNaTela("Incrementar com ++ deu:<b> " + incrementa + "</b>");
 
 // decrementa menos 1
 incrementa--;
-console.log("Decrementar com -- deu: " + incrementa);
+mostrarNaTela("Decrementar com -- deu:<b> " + incrementa + "</b>");
 
 
 
@@ -103,10 +112,11 @@ No javascript os sinais "==" e "!=" tentam converter
 um dos valores até 'encontrarem' essa igualdade
 */
 var igualdade = 5 == "5";
-console.log("A igualdade é: " + igualdade);
+mostrarNaTela("O valor da variável 'igualdade' é:<b> " + igualdade + "</b>");
+
 
 var diferenca = 5 != "5";
-console.log("A diferença é: " + diferenca);
+mostrarNaTela("O valor da variável 'diferenca' é:<b> " + diferenca + "</b>");
 
 
 /* os sinais "===" e "!==" comparam dois valores. 
@@ -114,27 +124,27 @@ No javascript os sinais "===" e "!==" NÃO tentam converter
 um dos valores até 'encontrarem' essa igualdade
 */
 var superIgualdade = 5 === "5";
-console.log("A super igualdade é: " + superIgualdade);
+mostrarNaTela("O valor da variável 'superIgualdade' é:<b> " + superIgualdade + "</b>");
 
 var superDiferenca = 5 !== "5";
-console.log("A super diferença é: " + superDiferenca);
+mostrarNaTela("O valor da variável 'superDiferenca' é:<b> " + superDiferenca + "</b>");
 
 // o sinal "!" faz a negação (inverte o valor booleano)
 var negacao = ! true;
-console.log("A negacao de true é: " + negacao);
+mostrarNaTela("O valor da variável 'negacao' é:<b> " + negacao + "</b>");
 
 
 var menorQue = 5 < 2;
-console.log("5 < 2 é: " + menorQue);
+mostrarNaTela("5 < 2 é:<b> " + menorQue + "</b>");
 
 var menorIgualQue = 5 <= 5;
-console.log("5 <= 5 é: " + menorIgualQue);
+mostrarNaTela("5 <= 5 é:<b> " + menorIgualQue + "</b>");
 
 var maiorQue = 5 > 2;
-console.log("5 > 2 é: " + maiorQue);
+mostrarNaTela("5 > 2 é:<b> " + maiorQue + "</b>");
 
 var maiorIgualQue = 5 >= 5;
-console.log("5 >= 5 é: " + maiorIgualQue);
+mostrarNaTela("5 >= 5 é:<b> " + maiorIgualQue + "</b>");
 
 
 
@@ -142,38 +152,41 @@ console.log("5 >= 5 é: " + maiorIgualQue);
 
 // ambas precisar retornar verdadeiro pro retorno ser verdadeiro
 var operadorEE = 5 < 3 && 5 < 6;
-console.log("5 < 3 e 5 < 6: " + operadorEE);
+mostrarNaTela("5 < 3 e 5 < 6:<b> " + operadorEE + "</b>");
 
 // apenas um precisa retornar verdadeiro pro retorno ser verdadeiro
 var operadorOU = 5 < 3 || 5 < 6;
-console.log("5 < 3 ou 5 < 6: " + operadorOU);
+mostrarNaTela("5 < 3 ou 5 < 6:<b> " + operadorOU + "</b>");
 
 
 // tratamento de erros
 try {
     // codigo a ser executado
-    console.log("sem erro");
+    mostrarNaTela("Sem erro, bloco try");
 }
 catch(err) {
    	// se código do bloco try der erro entra qui
-   	console.log("putz deu erro");
+   	mostrarNaTela("Com erro, bloco catch");
 } 
 finally {
     // sempre entra aqui
-    console.log("sempre vou executar");
+    mostrarNaTela("Sempre executa, bloco finally");
 }
 
 
 // disparando erro customizado
 try{
-	console.log("teste throw");
+	mostrarNaTela("Sem erro, bloco try");
 	throw "mensagem de erro";
 }
 catch(err) {
-   	console.log(err);
+   	mostrarNaTela("Com erro, bloco catch. Erro: <b>" + err + "</b>");
 } 
 
 
 // debugger
 // abaixo interromperia a execução do script para fins de debug
 // debugger;
+
+
+})();

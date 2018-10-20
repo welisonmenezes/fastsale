@@ -1,6 +1,4 @@
-console.log("\n\n\n-------------------------------------------------\n");
-console.log("Início arquivo 'funcoes.js'\n");
-console.log("-------------------------------------------------\n");
+(function(){
 
 // DEFINIÇÃO SIMPLES
 
@@ -12,8 +10,7 @@ function quadrado(x){
 	// 'return' se refere ao valor que a função retornará
 	return x * x;
 }
-
-console.log("O quadrado de 5 é: " + quadrado(5));
+mostrarNaTela("O quadrado de 5 é:<b> " + quadrado(5) + "</b>");
 
 
 
@@ -26,8 +23,7 @@ var nomefuncao = function(){
 var quadradoPorExpressao = function(x){
 	return x * x;
 }
-
-console.log("O quadrado de 6 é: " + quadradoPorExpressao(6));
+mostrarNaTela("O quadrado de 6 é:<b> " + quadradoPorExpressao(6) + "</b>");
 
 
 // RETURN 
@@ -39,19 +35,19 @@ console.log("O quadrado de 6 é: " + quadradoPorExpressao(6));
 function simplesSemRetorno(){
 	var soma = 5 + 5;
 
-	console.log("A soma da função sem retorno é: " + soma);
+	mostrarNaTela("A soma da função sem retorno é:<b> " + soma + "</b>");
 }
-console.log("O retorno de simplesSemRetorno é: " + simplesSemRetorno());
+mostrarNaTela("O retorno de simplesSemRetorno é:<b> " + simplesSemRetorno() + "</b>");
 
 
 // a funçao para de ser executada quando encontra a palavra return
 function soma(x){
 	var retorno = x + x;
 	return retorno; // é o fim oficial da funçao
-	console.log("a partir dessa linha não executará");
+	mostrarNaTela("a partir dessa linha não executará");
 	retorno = 10;
 }
-console.log("A soma de 200 + 200 é: " + soma(200));
+mostrarNaTela("A soma de 200 + 200 é:<b> " + soma(200) + "</b>");
 
 
 
@@ -62,7 +58,7 @@ console.log("A soma de 200 + 200 é: " + soma(200));
  por isso o código abaixo funiconará
 */
 
-console.log(chamandoAntes());
+mostrarNaTela(chamandoAntes());
 
 function chamandoAntes(){
 	return "Fui invocada antes de ser criada";
@@ -76,13 +72,15 @@ function chamandoAntes(){
 	executada após a definição.
 */
 
-//console.log(chamadoAntesErro());
 
-var chamadoAntesErro = function(){
-	return "Não fui alçada pra cima";
+try{
+	mostrarNaTela(chamadoAntesErro());
+}catch(err){
+	mostrarNaTela("Não fui alçada pra cima");
 }
-
-console.log(chamadoAntesErro());
+var chamadoAntesErro = function(){
+	return "Fui alçada pra cima";
+}
 
 
 
@@ -93,7 +91,7 @@ console.log(chamadoAntesErro());
 var variavelGlobal = "valor da global";
 
 function mostrarGlobal(){
-	console.log("A variável global é: " + variavelGlobal);
+	mostrarNaTela("A variável global é:<b> " + variavelGlobal + "</b>");
 }
 
 mostrarGlobal();
@@ -102,9 +100,19 @@ function mostrarLocal(){
 	// variáveis definidas dentro de função só são acessadas dentro;
 	var variavelLocal = "valor local";
 
-	console.log("A variável local é: " + variavelLocal);
+	mostrarNaTela("A variável local é:<b> " + variavelLocal + "</b>");
 }
 mostrarLocal();
+
+/*
+o código abaixo daria erro, pois a 'variavelLocal' 
+só existe dentro do escopo de função 'mostrarLocal'
+*/
+try{
+	mostrarNaTela("A variável local é: <b>" + variavelLocal + "</b>");
+}catch(err){
+	mostrarNaTela("A variável 'variavelLocal' não existe neste escopo");
+}
 
 // a palavra 'var' controlo a criação ou não de um novo espaço na memória
 
@@ -120,8 +128,9 @@ function alteraGlobal(){
 }
 alteraGlobal();
 
-console.log("O valor da global alterada agora é: " + globalAlterada);
-console.log("O valor da global não alterada agora é: " + globalNaoAlterada);
+mostrarNaTela("O valor da global alterada agora é:<b> " + globalAlterada + "</b>");
+mostrarNaTela("O valor da global não alterada agora é:<b> " + globalNaoAlterada + "</b>");
+
 
 
 // ARGUMENTOS
@@ -130,12 +139,12 @@ console.log("O valor da global não alterada agora é: " + globalNaoAlterada);
 function comArgumentosSimples(nome, idade, endereco){
 	return "O nome é: " + nome + ", a idade é: " + idade + " e o endereço é: " + endereco;
 }
-console.log(comArgumentosSimples("Welison", 30, "Coral - Lages"));
+mostrarNaTela(comArgumentosSimples("Welison", 30, "Coral - Lages"));
 
 // pode-se passar objetos ou arrays
 
 function comArrayEObjetos(array, objeto){
-	console.log("O tamanho do array é: " + array.lenght + " e o curso do objeto é: " + objeto.curso );
+	mostrarNaTela("O tamanho do array é: " + array.length + " e o curso do objeto é: " + objeto.curso);
 }
 
 var arrayTeste = ["java", "php", "c#"];
@@ -147,19 +156,22 @@ comArrayEObjetos(arrayTeste, objetoTeste);
 
 // pode-se passar funçoes
 function comFuncao(funcao){
+	this.name = "função caller";
 	// no caso de uma funão verifico se o tipo é 'function' e se for forço a execuçaõ
  	if(typeof(funcao)=="function"){
-		return funcao.call();
+ 		
+		//return funcao.bind(this)();
+		//return funcao.call(this);
+		return funcao.apply(this);
 	}
 
 	return "não é função";
         
 }
 var funcaoTeste = function(){
-	return "sou uma função passada como parâmetro";
+	return "sou uma função passada como parâmetro: " + this.name;
 }
-
-console.log( comFuncao(funcaoTeste) );
+mostrarNaTela(comFuncao(funcaoTeste));
 
 
 // objeto 'arguments[]'
@@ -175,14 +187,9 @@ function comArguments(){
 }
 
 var testeComArguments = comArguments("valor 1", "valor 2", "valor 3", "valor 4");
-console.log(testeComArguments);
+mostrarNaTela(testeComArguments);
 
- 
-/*
-o código abaixo daria erro, pois a 'variavelLocal' 
-só existe dentro do escopo de função 'mostrarLocal'
-*/
-//console.log("A variável local é: " + variavelLocal);
+
 
 
 // RECURSIVIDADE
@@ -202,8 +209,7 @@ function souRecursiva(x){
 
 	return souRecursiva(x);
 }
-
-console.log("A recursividade retornou: " + souRecursiva(1));
+mostrarNaTela("A recursividade retornou: <b>" + souRecursiva(1) + "</b>");
 
 
 
@@ -212,12 +218,11 @@ function loop(x) {
    if (x >= 10) return; //condição de parada
    
    // faça coisas
-   console.log("O x da função loop vale: " + x);
+   mostrarNaTela("O x da função loop vale: <b>" + x + "</b>");
 
    loop(x + 1); // chamada recursiva
 
 }
-
 loop(0);
 
 // PARÂMETROS POR REFERÊNCIA
@@ -238,13 +243,13 @@ var meuObjeto = {
 
 var minhaVar = "xxx";
 
-console.log("Nome no meuObjeto é: " + meuObjeto.nome);
-console.log("Valor da minhaVar é: " + minhaVar);
+mostrarNaTela("Nome no meuObjeto é: <b>" + meuObjeto.nome + "</b>");
+mostrarNaTela("Valor da minhaVar é: <b>" + minhaVar + "</b>");
 
 alteraObjeto(meuObjeto, minhaVar);
 
-console.log("Nome no meuObjeto é: " + meuObjeto.nome);
-console.log("Valor da minhaVar é: " + minhaVar);
+mostrarNaTela("Nome no meuObjeto é: <b>" + meuObjeto.nome + "</b>");
+mostrarNaTela("Valor da minhaVar é: <b>" + minhaVar + "</b>");
 
 
 
@@ -260,7 +265,7 @@ var linguagem = function(linguagem){
 }
 
 var textoLinguagem = linguagem("javascript");
-console.log( textoLinguagem() );
+mostrarNaTela(textoLinguagem());
 
 // closure com objeto
 var animais = function(animal){
@@ -278,8 +283,8 @@ var animais = function(animal){
 }
 
 var bicho = animais("cachorro");
-console.log( bicho.pegaNome() );
-console.log( bicho.pegaTipo() );
+mostrarNaTela(bicho.pegaNome());
+mostrarNaTela(bicho.pegaTipo());
 
 
 
@@ -292,5 +297,6 @@ function ObjFun(){
 }
 
 var teste = new ObjFun();
+mostrarNaTela(teste.getName());
 
-console.log( teste.getName() );
+})();
