@@ -3,12 +3,12 @@
 	margin: 0;
 }
 iframe{
-	display: block;
+	display: inline-block;
 	border: solid #e3e4e5 1px;
-	height: 150px;
-	max-width: 500px;
+	height: 50px;
+	max-width: 200px;
 	margin: 0 auto;
-	background: #ccc;
+	background: #222;
 }
 div, hr, p, iframe, h1, h2, h3, h4, h5, h6{
 	margin-bottom: 15px;
@@ -20,6 +20,7 @@ h1{
 }
 button{
 	cursor: pointer;
+	margin-bottom: 10px;
 }
 img{
 	height: 200px;
