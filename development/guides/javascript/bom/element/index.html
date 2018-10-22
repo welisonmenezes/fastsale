@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Object Element</title>
+	<link rel="stylesheet" href="../../src/app.css">
+	<style>
+		#divDimensoes{
+			padding: 10px;
+			width: 100px;
+			height: 100px;
+			background: #eee;
+			border: solid 5px black;
+			overflow: auto;
+			top: 20px;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wrap">
+		<h1 id="titulo-principal">Object Element</h1>
+		<div id="resultados"></div>
+		<div id="acoes">
+			<button id="pegarFoco">pegar Foco</button>
+			<button id="tirarFoco">tirar Foco</button>
+			<button id="simulaClick">simular Click</button>
+			<button id="addNoFinal">Add no final</button>
+			<button id="addNoInicio">Add no incício</button>
+			<button id="clonaElemento">Clonar elemento</button>
+			<button id="replaceElemento">Trocar Elemento</button>
+			<button id="removeElemento">Remover Elemento</button>
+		</div>
+		<div id="elementos">
+			<div>
+				<a href="#" target="_blank" id="linkAccesskey">link access key</a>
+			</div>
+			<hr>
+
+			<ul id="myLista">
+				<li>lista teste</li>
+			</ul>
+			<hr>
+
+			<div id="testeChildren" class="classeTeste classeTeste2 classeTeste3" title="Titulo teste">
+				<div>1º filho</div>
+				1º texto fora
+				<div>
+					<p>filho 2</p>
+				</div>
+				<div>
+					<p>
+						<span>filho 3</span>
+					</p>
+				</div>
+				2º texto fora
+				<div>último filho</div>
+			</div>
+			<hr>
+
+			<div id="divDimensoes">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam quidem consequuntur maiores, perspiciatis deleniti, quo optio harum consequatur architecto adipisci voluptate, officiis deserunt aliquid atque amet quos! Explicabo, quas, quibusdam.</p>
+			</div>
+			<hr>
+
+		</div>
+	</div>
+
+	<script src="../../src/app.js"></script>
+	<script src="element.js"></script>
+</body>
+</html>
