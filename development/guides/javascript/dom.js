@@ -443,7 +443,7 @@ function addIframeDinamicamente(){
 	// simulando em um iframe
 	var timer = setInterval(function() {
 	    var state = iframe1.contentWindow.document.readyState;
-	    if (state =="complete") { clearInterval(timer); }
+	    if (state == "complete") { clearInterval(timer); }
 	    console.log(state);    
 	}, 100);
 }

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Object Document</title>
+	<link rel="stylesheet" href="../../src/app.css">
+</head>
+<body>
+
+	<div class="wrap">
+		<h1 id="titulo-principal">Object Document</h1>
+
+		<div id="idTeste" title="Titulo teste">
+			<div name="nameTeste">1º filho</div>
+			1º texto fora
+			<div>
+				<p class="classTeste">filho 2</p>
+			</div>
+			<div>
+				<p>
+					<span>filho 3</span>
+				</p>
+			</div>
+			<h2>Subtítulo</h2>
+			2º texto fora
+			<div class="classTeste">último filho</div>
+		</div>
+
+		<div id="resultados">
+			<div id="iframes">
+				<iframe src="../../src/iframe-1.html"></iframe>
+				<iframe src="../../src/iframe-2.html"></iframe>
+				<div id="recebeIframe"></div>
+			</div>
+		</div>
+
+		<div id="acoes">
+			<div>
+				<button id="mostarTituloIframe">Mostar o título do iframe</button>
+				<button class="evento-click">Recebe evento click</button>
+				<button id="removeEvento">Remove 1 evento</button>
+				<button id="tenhoClick">Tenho click default</button>
+				<button id="removeClick">Remover click default</button>
+				<button id="eventoCustomizado">Evento Customizado</button>
+				<button id="eventoCustomizado2">Evento Customizado 2</button>
+			</div>
+			<div>
+				<button id="adotaElemento">Adotar Elemento</button>
+				<button id="importaElemento">Importar Elemento</button>
+				<button id="escreverAlgo">Escrever no documento</button>
+				<button id="addIframeDinamicamente">add Iframe Dinamicamente</button>
+			</div>
+			<div>
+				<div id="fullScreen" style="background: #fff;">
+					<button id="ficarFull">ficar Full</button>
+					<button id="sairFull">sair Full</button>
+					<button id="elFull">elemento Full</button>
+					<button id="isFull">está Full?</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="elementos">
+			<div id="normalizarDiv">
+				<button id="normalizarDocumento">Normalizar</button>
+			</div>
+			<div>
+				<form action="#">
+					<input type="text">
+				</form>
+			</div>
+			<div>
+				<embed src="../../src/banner.swf" type="application/vnd.adobe.flash-movie">
+				<hr>
+
+				<p>
+					<img src="../../imagem.jpg" alt="imagem exemplo">
+				</p>
+				<p id="imagemDinamica"></p>
+				<hr>
+
+				<ul>
+					<li>
+						<a href="#" name="ancora1">teste 1</a>
+					</li>
+					<li>
+						<a name="ancora2">teste 2</a>
+					</li>
+					<li>
+						<a href="#">teste 3</a>
+					</li>
+				</ul>
+				<hr>
+
+				<div>
+					<p id="textDinamico1"></p>
+					<p id="textDinamico2"></p>
+					<p id="textDinamico3"></p>
+				</div>
+				<hr>
+
+				<div id="recebeFragmento"></div>
+
+				<hr>
+				<button id="addBold">Add Bold</button>
+				<div id="elementoEditavel">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sapiente harum architecto autem molestias eaque porro fugit. Voluptatum, quos culpa, optio expedita sint libero repellat sit reiciendis. Mollitia, quaerat, totam?</p>
+				</div>
+
+				<hr>
+
+
+
+			</div>
+			<div id="recebeComentario"></div>
+		</div>
+
+	</div>
+
+	<script src="../../src/app.js"></script>
+	<script src="document.js"></script>
+</body>
+</html>

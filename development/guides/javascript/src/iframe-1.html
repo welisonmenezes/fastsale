@@ -39,6 +39,10 @@
 		// TOP
 		// retorna a janela pai de todos
 		console.log("A janela pai de todos é: ", window.top.document.title);
+
+		// defaultView (retorna o window do docuemnto)
+		dv = document.defaultView;
+		console.log("Titulo do defaultView: " + dv.document.title);
 	</script>
 </body>
 </html>
