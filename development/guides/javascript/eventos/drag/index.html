@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Event Drag</title>
+	<link rel="stylesheet" href="../../src/app.css">
+	<style>
+		#dragtarget{
+			cursor: move;
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+		.droptarget{
+			padding: 10px;
+			border: dashed 1px #eee;
+		}
+		.droptarget.alvo{
+			background: #444455;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wrap">
+		<h1 id="titulo-principal">Event Drag</h1>
+		
+		<div id="elementos">
+			
+			<p>
+				Dragging: <span id="elDragging"></span>
+			</p>
+			<p>
+				Dragover: <span id="elDragover"></span>
+			</p>
+
+			<div class="droptarget">
+			  	<div draggable="true" id="dragtarget">Arrasteme!</div>
+			</div>
+
+			<div class="droptarget alvo"></div>
+			
+		</div>
+
+		<div id="resultados"></div>
+
+	</div>
+
+	<script src="../../src/app.js"></script>
+	<script src="drag.js"></script>
+</body>
+</html>
