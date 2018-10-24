@@ -30,6 +30,12 @@ mostrarNaTela("O próximo node ao primeiro Elemento filho é: " + testeChildren.
 // nextElementSibling (retorna o elemento imediatamente após o elemento)
 mostrarNaTela("O próximo elemento ao primeiro Elemento filho é: " + testeChildren.firstElementChild.nextElementSibling.nodeName);
 
+// previousSibling (retorna o node imediatamente após o elemento)
+mostrarNaTela("O node anterior ao primeiro Elemento filho é: " + testeChildren.firstElementChild.previousSibling.nodeName);
+
+// previousElementSibling (retorna o elemento imediatamente após o elemento)
+mostrarNaTela("O elemento anterior ao primeiro Elemento filho é: " + testeChildren.previousElementSibling.nodeName);
+
 
 // NODE INFOS
 mostrarNaTela("O nome do node é: " + testeChildren.firstChild.nodeName);
@@ -68,6 +74,10 @@ mostrarNaTela("As classes do elemento são: " + testeChildren.classList);
 mostrarNaTela("O id do elemento é: " + testeChildren.id);
 mostrarNaTela("O titulo do elemento é: " + testeChildren.title);
 mostrarNaTela("O lang do elemento é: " + testeChildren.lang);
+mostrarNaTela("O nome da tag do elemento é: " + testeChildren.tagName);
+mostrarNaTela("O background style do elemento é: " + testeChildren.style.background);
+mostrarNaTela("O tabindex do elemento é: " + testeChildren.style.tabIndex);
+
 
 // add class
 testeChildren.className = "novaClasse";
@@ -219,6 +229,23 @@ mostrarNaTela("O 'clientTop' é: " + divDimensoes.clientTop);
 // clientLeft (retoran a largura do top)
 mostrarNaTela("O 'clientLeft' é: " + divDimensoes.clientLeft);
 
+// offsetLeft (distacia do elemnto a esquerda do offsetParent)
+mostrarNaTela("O 'offsetLeft' é: " + divDimensoes.offsetLeft);
+// offsetTop (distacia do elemnto ao topo do offsetParent)
+mostrarNaTela("O 'offsetTop' é: " + divDimensoes.offsetTop);
+// offsetParent (o primeiro elemento pai com position relative ou similar)
+mostrarNaTela("O 'offsetParent' é: " + divDimensoes.offsetParent.tagName);
+
+// ownerDocument (retorna o elemento html)
+mostrarNaTela("O 'ownerDocument' é: " + divDimensoes.ownerDocument.nodeName);
+
+
+// parentNode (retorna o node pai)
+mostrarNaTela("O 'parentNode' é: " + divDimensoes.parentNode.nodeName);
+
+// parentElement (retorna o elemento pai)
+mostrarNaTela("O 'parentElement' é: " + divDimensoes.parentElement.nodeName);
+
 
 // SCROLL POSISTION DO ELEMENTO
 // scrollTop (mostra altura total [com scrollbar])
@@ -226,6 +253,12 @@ divDimensoes.scrollTop = 100;
 mostrarNaTela("O 'scrollTop' é: " + divDimensoes.scrollTop);
 // scrollLeft (mostra altura total [com scrollbar])
 mostrarNaTela("O 'scrollLeft' é: " + divDimensoes.scrollLeft);
+
+
+document.getElementById("goToMyAnchor").onclick = function(){
+	var elmnt = document.getElementById("myAnchor");
+	elmnt.scrollIntoView();
+}
 
 
 
@@ -240,6 +273,22 @@ mostrarNaTela("O atributo 'class' tem o seguinte valor: " + attrClass);
 // getAttributeNode
 var attrNode = document.getElementById("testeChildren").getAttributeNode("class");
 mostrarNaTela("O node atributo 'class' tem o seguinte valor: " + attrNode.value);
+
+var myAnchor = document.getElementById("myAnchor");
+// setAttribute
+myAnchor.setAttribute("class", "red");
+
+// removeAttribute 
+myAnchor.removeAttribute("title");
+
+// setAttributeNode
+var myAtt = document.createAttribute("dir");
+myAtt.value = "rtl";
+myAnchor.setAttributeNode(myAtt); 
+
+// removeAttributeNode
+myAnchor.removeAttributeNode(myAnchor.getAttributeNode("lang"));  
+
 
 // getBoundingClientRect
 var bCR = document.getElementById("divDimensoes").getBoundingClientRect();

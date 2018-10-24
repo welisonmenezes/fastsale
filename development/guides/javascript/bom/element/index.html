@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="htmlPai">
 <head>
 	<meta charset="utf-8">
 	<title>JavaScript Object Element</title>
@@ -33,6 +33,7 @@
 			<button id="removeElemento">Remover Elemento</button>
 			<button id="compararPosicao">Comparar Posição</button>
 			<button id="verificaSeContem">Verifica se contem</button>
+			<button id="goToMyAnchor">Ir até a ancora</button>
 		</div>
 		<div id="elementos">
 			<div>
@@ -47,7 +48,7 @@
 			</ul>
 			<hr>
 
-			<div id="testeChildren" class="classeTeste classeTeste2 classeTeste3" title="Titulo teste">
+			<div id="testeChildren" class="classeTeste classeTeste2 classeTeste3" title="Titulo teste" style="background: #f4f4f4;">
 				<div class="classeFilho">1º filho</div>
 				1º texto fora
 				<div>
@@ -68,8 +69,10 @@
 			</div>
 			<hr>
 
-			<div id="divDimensoes">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam quidem consequuntur maiores, perspiciatis deleniti, quo optio harum consequatur architecto adipisci voluptate, officiis deserunt aliquid atque amet quos! Explicabo, quas, quibusdam.</p>
+			<div style="position: relative;">
+				<div id="divDimensoes">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam quidem consequuntur maiores, perspiciatis deleniti, quo optio harum consequatur architecto adipisci voluptate, officiis deserunt aliquid atque amet quos! Explicabo, quas, quibusdam.</p>
+				</div>
 			</div>
 			<hr>
 
@@ -90,6 +93,10 @@
 
 			<div id="comparaDois"><p class="paragrafo">paragrafo 1</p><p>paragrafo 2</p></div>
 			<div id="comparaUm"><p class="paragrafo">paragrafo 1</p><p>paragrafo 2</p></div>
+
+			<hr>
+
+			<div id="myAnchor" title="Meu título" lang="pt-br">Minha âncora</div>
 
 		</div>
 	</div>
