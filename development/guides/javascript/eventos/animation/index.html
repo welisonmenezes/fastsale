@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Event Animation</title>
+	<link rel="stylesheet" href="../../src/app.css">
+	<style>
+		
+		#myDiv{
+			margin: 25px;
+		    width: 550px;
+		    height: 100px;
+		    background: orange;
+		    position: relative;
+		    font-size: 25px;
+		    -webkit-animation-name: mymove;  /* Chrome, Safari, Opera */
+		    -webkit-animation-duration: 5s;  /* Chrome, Safari, Opera */
+		    -webkit-animation-iteration-count: 3;  /* Chrome, Safari, Opera */
+		    animation-name: mymove;
+		    animation-duration: 5s;
+		    animation-iteration-count: 3;
+		}
+
+		@-webkit-keyframes mymove {
+		    from {top: 0px;}
+		    to {top: 100px;}
+		}
+
+		@keyframes mymove {
+		    from {top: 0px;}
+		    to {top: 100px;}
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wrap">
+		<h1 id="titulo-principal">Event Animation</h1>
+		<div id="resultados"></div>
+		<div id="myDiv"></div>
+	</div>
+
+	<script src="../../src/app.js"></script>
+	<script src="animation.js"></script>
+</body>
+</html>
