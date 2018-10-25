@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Events Mouse</title>
+	<link rel="stylesheet" href="../../src/app.css">
+	<style>
+		#target{
+			display: block;
+			width: 200px;
+			height: 200px;
+			background: blue;
+		}
+		#target > div{
+			display: block;
+			width: 100px;
+			height: 100px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wrap">
+		<h1 id="titulo-principal">Events Mouse</h1>
+		<div id="elementos">
+			<p>
+				clientX: <span id="clientX"></span>
+			</p>
+			<p>
+				clientY: <span id="clientY"></span>
+			</p>
+			<p>
+				offsetX: <span id="offsetX"></span>
+			</p>
+			<p>
+				offsetY: <span id="offsetY"></span>
+			</p>
+			<p>
+				pageX: <span id="pageX"></span>
+			</p>
+			<p>
+				pageY: <span id="pageY"></span>
+			</p>
+			<p>
+				screenX: <span id="screenX"></span>
+			</p>
+			<p>
+				screenY: <span id="screenY"></span>
+			</p>
+			<p>
+				Capslock: <span id="el_capslock"></span>
+			</p>
+			<p>
+				Mousemove: <span id="mousemove"></span>
+			</p>
+			<div id="target">
+				<div></div>
+			</div>
+		</div>
+		<div id="resultados"></div>
+	</div>
+
+	<script src="../../src/app.js"></script>
+	<script src="mouse.js"></script>
+</body>
+</html>
