@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Event UiEvent</title>
+	<link rel="stylesheet" href="../../src/app.css">
+	<style>
+		#dragtarget{
+			cursor: move;
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+		.droptarget{
+			padding: 10px;
+			border: dashed 1px #eee;
+		}
+		.droptarget.alvo{
+			background: #444455;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wrap">
+		<h1 id="titulo-principal">Event UiEvent</h1>
+		
+		<div id="elementos">
+			<video width="400" controls="" id="myVideo">
+				<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+				<source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+				Seu navegador não suporta videos HTML5.
+			</video>
+			<p>
+				Resize: <span id="resize"></span>
+			</p>
+			<p>
+				Scroll: <span id="scroll"></span>
+			</p>
+			<p>
+				Input: <span id="input"></span>
+			</p>
+			<p>
+				Progresso: <span id="progresso"></span>
+			</p>
+			<p>
+				<input type="text" id="myInput" value="Texto default para teste">
+			</p>
+			<div>
+				<iframe src="../../src/iframe-storage.html"></iframe>
+			</div>
+		</div>
+
+		<div id="acoes">
+			<button id="removerVideo">Remover vídeo</button>
+			<a href="https://www.w3schools.com/">Ir para o w3schools</a>
+			<button id="mostrarMensagem">Mostrar Mensagem</button>
+		</div>
+
+		<div id="resultados"></div>
+
+	</div>
+
+	<script src="../../src/app.js"></script>
+	<script src="uievent.js"></script>
+</body>
+</html>

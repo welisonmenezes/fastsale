@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Teste Storage</h1>
+	<button id="guardarDados">Guardar dados</button>
+
+	<script>
+		document.getElementById("guardarDados").onclick = function(){
+			console.log("salvando storage");
+		    window.localStorage.setItem('nomeVariavel', 'valorVariavel');
+		}
+	</script>
+</body>
+</html>
