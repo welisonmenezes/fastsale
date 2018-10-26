@@ -30,6 +30,17 @@
 		    from {top: 0px;}
 		    to {top: 100px;}
 		}
+
+		#myDiv2{
+			width: 100px;
+			height: 100px;
+			background: red;
+			-webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+			transition: width 2s;
+		}
+		#myDiv2:hover{
+		    width: 400px;
+		}
 	</style>
 </head>
 <body>
@@ -38,6 +49,7 @@
 		<h1 id="titulo-principal">Event Animation</h1>
 		<div id="resultados"></div>
 		<div id="myDiv"></div>
+		<div id="myDiv2"></div>
 	</div>
 
 	<script src="../../src/app.js"></script>
