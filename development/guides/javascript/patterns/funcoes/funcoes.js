@@ -145,4 +145,85 @@ getAutoDef1();
 	console.log(w);
 }("welison", window));
 
+// retorno (já executa retornando o valor)
+var myMessage = (function(){
+	var text1 = "Olá";
+	var text2 = "Mundo";
+
+	return text1 + " " + text2;
+}());
+
+mostrarNaTela("A myMessage vale: " + myMessage);
+
+
+
+// INICIALIZAÇÃO IMEDIATA DE OBJETOS
+({
+	name: "Welison",
+	init: function(){
+		mostrarNaTela("O nome é: " + this.name);
+	}
+}).init();
+
+
+
+
+// PADRÃO DE MEMOIZAÇÃO
+// o método guarda em cache chamada de função com mesmo parâmetro
+// para evitar refazer um processo que já foi feito
+var myFunc = function(param){
+	if(!myFunc.cache[param]){
+		var result = {
+			valor: "Olá " + param
+		};
+		myFunc.cache[param] = result;
+	}
+	return myFunc.cache[param];
+}
+myFunc.cache = {};
+
+myFunc("welison menezes");
+myFunc("welison");
+myFunc("welison");
+myFunc("welison");
+myFunc("josé");
+console.log(myFunc.cache);
+
+var myName = myFunc("welison");
+mostrarNaTela(myName.valor);
+
+
+
+
+// PADRÃO OBJETO DE CONFIGURAÇÃO
+
+// modo ruim
+function criarPessoa1(nome, sobrenome, email, endereco, sexo){
+	this.nome = nome;
+	this.sobrenome = sobrenome;
+	this.email = email;
+	this.endereco = endereco;
+	this.sexo = sexo;
+}
+var p1 = new criarPessoa1("Maria", "Silva", "maria@email.com", "rua da maria", "F");
+mostrarNaTela("A " + p1.nome + " é mora em: " + p1.endereco);
+
+// modo standart
+function criarPessoa2(conf){
+	this.nome = conf.nome;
+	this.sobrenome = conf.sobrenome;
+	this.email = conf.email;
+	this.endereco = conf.endereco;
+	this.sexo = conf.sexo;
+}
+var conf = {
+	nome: "Carlos",
+	sobrenome: "Ferreira",
+	email: "carlos@email.com",
+	endereco: "rua do carlos",
+	sexo: "M"
+};
+var p2 = new criarPessoa2(conf);
+mostrarNaTela("O " + p2.nome + " é mora em: " + p2.endereco);
+
 })();
