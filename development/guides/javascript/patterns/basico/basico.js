@@ -125,7 +125,7 @@ mostrarNaTela(parseInt('09', 10));
 
 
 // COMENTÁRIOS COMO DOCUMENTAÇÃO
-
+var MYAPP = {};
 /**
 * Descrição do namespace
 * @namespace MYAPP
