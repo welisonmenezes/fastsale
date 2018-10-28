@@ -226,4 +226,47 @@ var conf = {
 var p2 = new criarPessoa2(conf);
 mostrarNaTela("O " + p2.nome + " é mora em: " + p2.endereco);
 
+
+
+// CURRING
+
+var add = function(x, y){
+	var oldx = x, oldy = y;
+
+	if(typeof oldy === "undefined"){
+		return function(newy){
+			return oldx + newy;
+		}
+	}
+
+	return x + y;
+}
+
+var newAdd = add(5);
+mostrarNaTela(typeof newAdd);
+var newAdd2 = newAdd(4);
+mostrarNaTela("O resultado de add com curring é: " + newAdd2);
+
+
+var currying = function(fn){
+	var slice = Array.prototype.slice;
+
+	// remove o primeiro parametro de arguments, pois esta seria a funçao (fn)
+	var stored_args = slice.call(arguments, 1);
+
+	return function(){
+		// pega os arguemntos da segunda chamada
+		var new_args = slice.call(arguments);
+		// concatena com os argumentos da primeira chamda
+		var args = stored_args.concat(new_args);
+
+		// retorna a função (fn) aplicando os arguemntos
+		return fn.apply(null, args);
+	}
+}
+
+var cAdd = currying(add, 5);
+var cAdd2 = cAdd(4);
+mostrarNaTela("O resultado de add com curring é: " + cAdd2);
+
 })();
