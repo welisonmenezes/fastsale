@@ -15,8 +15,8 @@ myStr = "String Editada!!!";
 mostrarNaTela("A string editada ficou: " +  myStr);
 
 // construtor
-mostrarNaTela("O construtor do myArr é: " + myStr.constructor.name);
-mostrarNaTela("O construtor do myArr2 é: " + myStr2.constructor.name);
+mostrarNaTela("O construtor do myStr é: " + myStr.constructor.name);
+mostrarNaTela("O construtor do myStr2 é: " + myStr2.constructor.name);
 
 // tamanho (retorna o tamanho do array)
 mostrarNaTela("O tamanho de myStr é: " + myStr.length);
