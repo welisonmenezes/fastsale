@@ -18,28 +18,34 @@ mostrarNaTela("O construtor do objeto é: " + objConstrutor.constructor.name);
 var MYAPP = MYAPP || {};
 
 // MYAPP.modules.modules2
+MYAPP.count = 0;
+MYAPP.createObj = function(obj, arrp){
+
+	this.count++;
+
+	obj[arrp[this.count]] = { name: arrp[this.count] };
+
+	if(this.count < (arrp.length-1)){
+		this.createObj(obj[arrp[this.count]], arrp);
+	}else{
+		this.count = 0;
+	}
+};
 MYAPP.namespace = function(ns_string){
 	var partes = ns_string.split("."),
 		pai = MYAPP,
 		i;
 
-	// remove primeira parte
-	if(partes[0] === "MYAPP"){
-		partes = partes.slice(1);
-	}
-
-	for(i = 0; i < partes.length; i++){
-		if(typeof pai[partes[i]] === "undefined"){
-			pai[partes[i]] = {};
-		}
-		//pai = pai[partes[i]];
-	}
+	this.createObj(pai, partes);
 
 	return pai;
 };
 
-var module2 = MYAPP.namespace("MYAPP.module.module2.module3");
-console.log(module2)
+
+
+MYAPP.namespace("MYAPP.module1.module2.module3.module4.module5");
+MYAPP.namespace("MYAPP.moduleTest");
+console.log(MYAPP);
 
 
 
@@ -139,6 +145,88 @@ MyGadget.prototype.getName = function(){
 
 var theGad = new MyGadget();
 mostrarNaTela(theGad.getName());
+
+
+
+
+// PADRÃO MÓDULO
+MYAPP.namespace("MYAPP.utilites.array");
+
+MYAPP.utilites.array = (function(){
+
+	// dependênicas
+	var uobj = MYAPP.utilites.object,
+		ulang = MYAPP.utilites.lang;
+
+	// proriedades privadas
+	var array_string = "[object Array]",
+		ops = Object.prototype.toString;
+
+
+	return {
+		inArray: function(needle, haystack){
+			for(var i = 0; i < haystack.length; i++){
+				if(haystack[i] === needle){
+					return true;
+				}
+			}
+			return false;
+		},
+		isArray: function(a){
+			return ops.call(a) === array_string;
+		}
+	};
+}());
+
+mostrarNaTela("É um array? " + MYAPP.utilites.array.isArray([1,2,3]));
+
+var arrTeste = ["banana", "manga", "pêssego"];
+mostrarNaTela("Tem a fruta 'uva'? " + MYAPP.utilites.array.inArray('uva', arrTeste));
+
+
+
+
+// MÓDULO COM CONSTRUTOR
+MYAPP.namespace("MYAPP.utilites.ArrayC");
+
+MYAPP.utilites.ArrayC = (function(){
+
+	// propriedades
+	var Constr;
+
+	Constr = function(o){
+		this.elements = this.toArray(o);
+	};
+
+	Constr.prototype = {
+		constructor: MYAPP.utilites.ArrayC,
+		version: "1.0",
+		toArray: function(obj){
+			var a = [], i = 0;
+			for(o in obj){
+				a[i] = obj[o];
+				i++;
+			}
+			return a;
+		}
+	};
+
+	return Constr;
+
+}());
+
+var arrConstr = new MYAPP.utilites.ArrayC({nome: "Welison", email: "welison@email.com"});
+console.log(arrConstr);
+
+
+
+//  IMPORTANDO GLOBAIS PARA MODULO
+MYAPP.utilites.module = (function(app, global){
+	console.log("O app é: ", app);
+	console.log("O global é: ", global);
+}(MYAPP, this));
+
+
 
 
 
