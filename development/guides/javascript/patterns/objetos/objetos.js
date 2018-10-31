@@ -298,6 +298,7 @@ function MyClass(){
 	this.interno = function(){
 		mostrarNaTela("Sou um método interno");
 	}
+	this.message = "Sou a mensagem da classe";
 }
 // não é visível por uma instância
 MyClass.static = function(){
@@ -329,6 +330,54 @@ try{
 	mostrarNaTela("O método static não é visível a partir de uma instância");
 }
 objClass.public();
+
+
+// usando metodo estatico com instância
+
+MyClass.staticInstancia = function(){
+
+	// nesse dar atenção ao this
+	if(this instanceof MyClass){
+		mostrarNaTela(this.message);
+	}else{
+		mostrarNaTela("Sou um método staticInstancia");
+	}
+}
+
+MyClass.prototype.staticInstancia = MyClass.staticInstancia;
+
+MyClass.staticInstancia();
+var objClass2 = new MyClass();
+objClass2.staticInstancia();
+
+
+
+// MEMBRO ESTÁTICOS PRIVADOS
+var FuncRet;
+var MyConstr = (function(){
+	var count = 0,
+		FuncRet;
+
+	FuncRet = function(){
+		count++;
+	}
+
+	FuncRet.prototype.getID = function(){
+		return "O ID atual é: " + count;
+	}
+
+	return FuncRet;
+
+}());
+
+var inst1 = new MyConstr();
+mostrarNaTela(inst1.getID());
+
+var inst2 = new MyConstr();
+mostrarNaTela(inst2.getID());
+
+var inst3 = new MyConstr();
+mostrarNaTela(inst3.getID());
 
 
 
