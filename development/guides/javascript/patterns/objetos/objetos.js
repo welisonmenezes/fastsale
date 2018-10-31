@@ -228,6 +228,108 @@ MYAPP.utilites.module = (function(app, global){
 
 
 
+// PADRÃO SANDBOX
+
+// criando módulos
+Sandbox.modules = {};
+Sandbox.modules.dom = function(box){
+	mostrarNaTela("Sou o módulo dom e o name box é: " + box.getName());
+}
+Sandbox.modules.event = function(box){
+	mostrarNaTela("Sou o módulo event e o name box é: " + box.getName());
+}
+
+// criando 'caixa de areia'
+function Sandbox(){
+	var args = Array.prototype.slice.call(arguments),
+		callback = args.pop(),
+		modules = (args[0] && typeof args[0] === "string") ? args : args[0],
+		i;
+
+	// garantindo sempre uma instancia
+	if(!this instanceof Sandbox){
+		return new Sandbox(modules, callback);
+	}
+
+	// se for vazio ou '*' carrega todos
+	if(!modules || modules === "*"){
+		modules = [];
+		for(m in Sandbox.modules){
+			if(Sandbox.modules.hasOwnProperty(m)){
+				modules.push(m);
+			}
+		}
+	}
+
+	// executa os módulos
+	for(i = 0; i < modules.length; i++){
+		try{
+			if(Sandbox.modules[modules[i]]){
+				Sandbox.modules[modules[i]](this);
+			}else{
+				throw {
+					name: "Erro Módulo",
+					message: "O módulo " + modules[i] + " não exsite."
+				}
+			}
+		}catch(err){
+			console.log(err);
+		}
+	}
+}
+
+Sandbox.prototype.getName = function(){
+	return "Sandbox Name";
+};
+
+var sand = new Sandbox('dom', 'xuxa', function(){
+	mostrarNaTela("teste");
+});
+
+
+
+
+// MÉTODOS ESTÁTICOS
+
+function MyClass(){
+	mostrarNaTela("Minha classe");
+
+	// só é visível a partir de uma instância
+	this.interno = function(){
+		mostrarNaTela("Sou um método interno");
+	}
+}
+// não é visível por uma instância
+MyClass.static = function(){
+	mostrarNaTela("Sou um método estático");
+}
+// só é visível a partir de uma instância
+MyClass.prototype.public = function(){
+	mostrarNaTela("Sou um método público");
+}
+
+
+MyClass.static();
+try{
+	MyClass.interno();
+}catch(err){
+	mostrarNaTela("O método interno não é visível sem uma instância");
+}
+try{
+	MyClass.public();
+}catch(err){
+	mostrarNaTela("O método público não é visível sem uma instância");
+}
+
+var objClass = new MyClass();
+objClass.interno();
+try{
+	objClass.static();
+}catch(err){
+	mostrarNaTela("O método static não é visível a partir de uma instância");
+}
+objClass.public();
+
 
 
 })();
