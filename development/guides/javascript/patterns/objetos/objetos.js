@@ -381,4 +381,84 @@ mostrarNaTela(inst3.getID());
 
 
 
+// GERADOR DE CONSTANTES
+var constant = (function(){
+	var constants = {},
+		ownProp = Object.prototype.hasOwnProperty,
+		prefix = (Math.random() + "_").slice(2);
+
+	return {
+		set: function(name, value){
+			if(this.isDefined(name)){
+				return false;
+			}
+			constants[prefix + name] = value;
+			return true;
+		},
+		isDefined: function(name){
+			return ownProp.call(constants, prefix + name);
+		},
+		get: function(name){
+			if(this.isDefined(name)){
+				return constants[prefix + name];
+			}
+			return null;
+		}
+	};
+}());
+
+mostrarNaTela("A constante maxwidth está definida? " + constant.isDefined('maxwidth'));
+mostrarNaTela("Definindo constante maxwidth: " + constant.set('maxwidth', 500));
+mostrarNaTela("A constante maxwidth está definida? " + constant.isDefined('maxwidth'));
+mostrarNaTela("Pegando constante maxwidth: " + constant.get('maxwidth'));
+console.log(constant);
+
+
+
+// PADRÃO DE ENCADEAMENTO
+var chainObj = {
+	value: 1,
+	increment: function(){
+		this.value++;
+		return this;
+	},
+	addTwo: function(){
+		this.value = this.value + 2;
+		return this;
+	},
+	square: function(){
+		this.value = this.value * this.value;
+		return this;
+	},
+	showValue: function(){
+		mostrarNaTela("O valor acumulado é: " + this.value);
+	}
+};
+
+chainObj.increment().addTwo().square().showValue();
+
+
+
+// PADRÃO MÉTODO
+if(typeof Function.prototype.method !== "function"){
+	Function.prototype.method = function(name, fn){
+		this.prototype[name] = fn;
+		return this;
+	};
+}
+
+var Pessoa = function(name){
+	this.name = name;
+}.method('getName', function(){
+	return this.name;
+}).method('setName', function(name){
+	this.name = name;
+	return this;
+});
+
+var pessoa1 = new Pessoa("José");
+mostrarNaTela("O nome da pessoa é: " + pessoa1.getName());
+pessoa1.setName("José da Silva");
+mostrarNaTela("O nome da pessoa é: " + pessoa1.getName());
+
 })();
