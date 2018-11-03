@@ -189,4 +189,77 @@ mostrarNaTela(f2.digaMarca());
 mostrarNaTela(f2.hasOwnProperty('marca'));
 mostrarNaTela(f2.constructor.name);
 
+
+
+
+/*
+* 	CLASSES (EMULAÇÃO)
+*/
+var klass = function(Pai, props){
+
+	var Filho, F, i;
+
+	// novo construtor
+	Filho = function(){
+		if(Filho.uber && Filho.uber.hasOwnProperty("__construct")){
+			Filho.uber.__construct.apply(this, arguments);
+			//console.log("Uber", Filho.uber)
+		}
+		if(Filho.prototype.hasOwnProperty("__construct")){
+			Filho.prototype.__construct.apply(this, arguments);
+			//console.log("Normal", Filho.uber)
+		}
+	};
+
+	// herança
+	Pai = Pai || Object;
+	F = function(){};
+	F.prototype = Pai.prototype;
+	Filho.prototype = new F();
+	Filho.uber = Pai.prototype;
+	Filho.prototype.constructor = Filho;
+
+	//console.log(Filho.uber.prototype)
+
+	// add os métodos
+	for(i in props){
+		if(props.hasOwnProperty(i)){
+			Filho.prototype[i] = props[i];
+		}
+	}
+
+	// retorna a 'classe'
+	return Filho;
+};
+
+
+var Man = klass(null, {
+	__construct: function(what){
+		console.log("Man's constructor");
+		this.name = what;
+	},
+	getName: function(){
+		return this.name;
+	}
+});
+
+var first = new Man("Adam");
+mostrarNaTela(first.getName());
+
+var Superman = klass(Man, {
+	__construct: function(what){
+		console.log("Superman's constructor");
+	},
+	getName: function(){
+		var name = Superman.uber.getName.call(this) + " da Silva";
+		return "Eu sou " + name;
+	}
+});
+
+var second = new Superman("José");
+mostrarNaTela(second.name);
+mostrarNaTela(second.getName());
+
+
+
 }());
