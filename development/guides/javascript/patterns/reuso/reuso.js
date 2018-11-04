@@ -262,4 +262,132 @@ mostrarNaTela(second.getName());
 
 
 
+// HERANÇA PROTOTÍPICA
+function object(obj){
+	function F(){}
+	F.prototype = obj;
+	return new F();
+}
+
+function Imovel(name){
+	this.name = name;
+}
+Imovel.prototype.getName = function(){
+	return "O tipo do imóvel é: " + this.name;
+};
+
+var imo = new Imovel("Casa");
+mostrarNaTela(imo.name);
+mostrarNaTela(imo.getName());
+mostrarNaTela(imo.constructor.name);
+
+var kid = object(imo);
+mostrarNaTela(kid.name);
+mostrarNaTela(kid.getName());
+mostrarNaTela(kid.constructor.name);
+
+// com object create
+var kid2 = Object.create(imo, {
+	name: { value: "Apartamento" }
+});
+mostrarNaTela(kid2.name);
+mostrarNaTela(kid2.getName());
+mostrarNaTela(kid2.constructor.name);
+
+
+
+// HERANÇA POR CÓPIA
+
+ function extendDeep(pai, filho){
+ 	var i,
+ 		toStr = Object.prototype.toString,
+ 		asTr = "[object Array]";
+
+ 	filho = filho || {};
+
+ 	for(i in pai){
+ 		if(pai.hasOwnProperty(i)){
+ 			if(typeof pai[i] === "object"){
+ 				filho[i] = (toStr.call(pai[i] === asTr)) ? [] : {};
+ 				extendDeep(pai[i], filho[i]);
+ 			}else{
+ 				filho[i] = pai[i];
+ 			}
+ 		}
+ 	}
+ 	return filho;
+ }
+
+ var dad = {
+ 	counts: [1, 2, 3],
+ 	reads: {paper: true},
+ 	name: "test"
+ };
+
+ var kid = extendDeep(dad);
+
+ console.log(kid);
+ kid.reads.paper = false;
+
+ mostrarNaTela("O kid paper é: " + kid.reads.paper);
+ mostrarNaTela("O dad paper é: " + dad.reads.paper);
+
+
+
+ // MIXI-INS
+
+function mix(){
+	var arg, prop, child = {};
+
+	for(arg = 0; arg < arguments.length; arg++){
+		for(prop in arguments[arg]){
+			if(arguments[arg].hasOwnProperty(prop)){
+				child[prop] = arguments[arg][prop];
+			}
+		}
+	}
+	return child;
+}
+
+var bolo = mix(
+	{ovos: 2, grande: true },
+	{manteiga: 1, salgada: true},
+	{farinha: "3 copos"},
+	{acucar: "sim!"}
+);
+
+console.log(bolo);
+mostrarNaTela("A manteiga do bolo é salgada? " + bolo.salgada);
+
+
+
+// FAZENDO UM BIND
+
+function myBind(o, m){
+	return function(){
+		return m.apply(o, [].slice.call(arguments));
+	}
+}
+
+var one = {
+	name: "Welison",
+	sayHello: function(){
+		mostrarNaTela("Olá " + this.name);
+	}
+};
+
+var another = {
+	name: "José"
+};
+
+anotherSay = myBind(another, one.sayHello);
+anotherSay();
+
+// bind nativo
+anotherSay2 = one.sayHello.bind(another);
+anotherSay2();
+
+
+
+
 }());
