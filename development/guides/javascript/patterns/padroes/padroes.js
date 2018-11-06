@@ -162,4 +162,88 @@ mostrarNaTela(unid2.getName());
 mostrarNaTela(unid.getName2());
 mostrarNaTela(unid2.getName2());
 
+
+
+
+/*
+*	FACTORY
+*/
+function CarMaker(){
+	this.name = "CarMaker";
+}
+CarMaker.prototype.sayHello = function(){
+	mostrarNaTela("Olá desde CarMaker");
+};
+CarMaker.factory = function(type){
+	var constr = type,
+		newcar;
+
+	// erro caso o construtor não exista
+	if (typeof CarMaker[constr] !== "function"){
+		throw{
+			name: "Error",
+			message: constr + " não existe"
+		};
+	}
+
+	// construtor existe segue adiante
+	if(typeof CarMaker[constr].prototype.sayHello !== "function"){
+		CarMaker[constr].prototype = new CarMaker();
+	}
+
+	newcar = new CarMaker[constr]();
+	return newcar;
+};
+
+
+CarMaker.Compact = function(){
+	this.doors = 4;
+	this.name = "Compact";
+}
+
+var corolla = CarMaker.factory('Compact');
+console.log(corolla);
+corolla.sayHello();
+mostrarNaTela(corolla.name);
+
+
+// ITERATOR
+var agg = (function(){
+
+	var index = 0,
+		data = [1, 2, 3, 4, 5],
+		length = data.length;
+
+
+	return{
+		next: function(){
+			var element;
+			if(!this.hasNext()){
+				return null;
+			}
+			element = data[index];
+			index++;
+			return element;
+		},
+		hasNext: function(){
+			return index < length;
+		},
+		reset: function(){
+			index = 0;
+		}
+	}
+
+}());
+
+var elementTest;
+while(elementTest = agg.next()){
+	mostrarNaTela("O elemento é: " + elementTest);
+}
+
+agg.reset();
+
+while(agg.hasNext()){
+	mostrarNaTela("O elemento agora é: " + agg.next());
+}
+
 }());
