@@ -77,4 +77,31 @@ for(var a = 0; a < 100; a++){
 
 }
 
+
+
+// nomeando laços
+ze: for(var i = 0; i < 10; i++){
+	maria: for(var x = 0; x < 10; x++){
+		console.log("i: " + i + " x: " + x);
+
+		if(x==2){
+			break ze;
+		}
+	}
+}
+
+
+var i = 0;
+joao: while(i < 10){
+	var x = 0;
+	luana: while(x < 10){
+		console.log("i: " + i + " x: " + x);
+		if(x == 3){
+			break joao;
+		}
+		x++;
+	}
+	i++;
+}
+
 })();
