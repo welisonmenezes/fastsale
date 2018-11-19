@@ -1,0 +1,91 @@
+(function(){
+
+// OBJETOS
+
+// literais
+var objLiteral = {};
+console.log(objLiteral);
+mostrarNaTela("O construtor do objeto é: " + objLiteral.constructor.name);
+
+// construtor
+var objConstrutor = new Object();
+console.log(objConstrutor);
+mostrarNaTela("O construtor do objeto é: " + objConstrutor.constructor.name);
+
+
+// assign (es6)
+// copia os valores de um objeto e implementa num outro objeto
+var object1 = {
+  a: 1,
+  b: 2,
+  c: 3
+};
+object1 = 8;
+
+
+var object2 = {c: 4, d: 5};
+
+var object3 = Object.assign(object2, object1); // referência do object2
+object3.e = 7;
+
+mostrarNaTela(JSON.stringify(object1));
+mostrarNaTela(JSON.stringify(object2));
+mostrarNaTela(JSON.stringify(object3));
+
+
+
+// create
+var objCre1 = {};
+// equivale
+var objCre2 = Object.create(Object.prototype);
+console.log(objCre2);
+// equivale
+var objCre3 = Object.create({});
+console.log(objCre3);
+
+// criando com atributo
+var objCre4 = o2 = Object.create({}, {
+	p: {
+		value: 42,
+		writable: true, // pode ser escrito
+		enumerable: true, // é enumeravel
+		configurable: true // é configuravel
+	}
+});
+console.log(objCre4);
+
+
+
+// defineProperty
+// define e configura uma propriedade para um dado objeto
+var objDef = {};
+
+Object.defineProperty(objDef, 'name', {
+	value: "Welison",
+	writable: true,
+	enumerable: true,
+	configurable: true
+});
+
+mostrarNaTela("O nome é: " + objDef.name);
+
+
+var objGet = {
+	_name: "WELISON"
+};
+
+Object.defineProperty(objGet, 'name', {
+	get: function(){
+		return this._name
+	},
+	set: function(name){
+		this._name = name + " MENEZES";
+	}
+});
+
+mostrarNaTela("O nome de get é: " + objGet.name);
+objGet.name = "WILSON";
+mostrarNaTela("O nome de get é: " + objGet.name);
+
+
+})();
