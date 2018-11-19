@@ -246,4 +246,128 @@ while(agg.hasNext()){
 	mostrarNaTela("O elemento agora é: " + agg.next());
 }
 
+
+
+// DECORATOR
+
+function Sale(price){
+	this.price = price || 100;
+}
+
+Sale.prototype.getPrice = function(){
+	return this.price;
+};
+
+Sale.decorators = {};
+
+Sale.prototype.decorate = function(decorator){
+	var F = function(){},
+		overrides = this.constructor.decorators[decorator],
+		i, newObj;
+
+	F.prototype = this;
+	newObj = new F();
+	newObj.uber = F.prototype;
+
+	for(i in overrides){
+		if(overrides.hasOwnProperty(i)){
+			newObj[i] = overrides[i];
+		}
+	}
+	return newObj;
+};
+
+Sale.decorators.fedtax = {
+	getPrice: function(){
+		var price = this.uber.getPrice();
+		price += price * 7.5 / 100;
+		return price;
+	}
+};
+
+Sale.decorators.money = {
+	getPrice: function(){
+		return "$ " + (this.uber.getPrice().toFixed(2));
+	}
+};
+
+Sale.decorators.cdn = {
+	getPrice: function(){
+		return "CDN" + (this.uber.getPrice());
+	}
+};
+
+var sale = new Sale(100);
+mostrarNaTela("O preço agora é: " + sale.getPrice());
+
+sale = sale.decorate('fedtax');
+mostrarNaTela("O preço agora é: " + sale.getPrice());
+
+sale = sale.decorate('money');
+mostrarNaTela("O preço agora é: " + sale.getPrice());
+
+sale = sale.decorate('cdn');
+mostrarNaTela("O preço agora é: " + sale.getPrice());
+
+
+
+// DECORATOR SEM HERANÇA
+function Vendas(price){
+	this.price = price || 100;
+	this.decorators_list = [];
+}
+
+Vendas.decorators = {};
+
+Vendas.decorators.fedtax = {
+	getPrice: function(price){
+		return price + price * 7.5 / 100;
+	}
+};
+
+Vendas.decorators.money = {
+	getPrice: function(price){
+		return "$ " + price;
+	}
+};
+
+Vendas.decorators.cdn = {
+	getPrice: function(price){
+		return "CDN" + price;
+	}
+};
+
+Vendas.prototype.decorate = function(decorator){
+	this.decorators_list.push(decorator);
+};
+
+Vendas.prototype.getPrice = function(){
+	var price = this.price,
+		i,
+		max = this.decorators_list.length,
+		name;
+
+	for(i = 0; i < max; i++){
+		name = this.decorators_list[i];
+		price = Vendas.decorators[name].getPrice(price);
+	}
+
+	return price;
+};
+
+
+var venda = new Vendas(100);
+mostrarNaTela("O preço de venda agora é: " + venda.getPrice());
+
+venda.decorate('fedtax');
+mostrarNaTela("O preço de venda agora é: " + venda.getPrice());
+
+venda.decorate('money');
+mostrarNaTela("O preço de venda agora é: " + venda.getPrice());
+
+venda.decorate('cdn');
+mostrarNaTela("O preço de venda agora é: " + venda.getPrice());
+
+
+
 }());
