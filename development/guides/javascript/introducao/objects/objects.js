@@ -217,4 +217,20 @@ console.log(Object.is([], []));
 console.log(Object.is({}, {}));
 
 
+// hasOwnProperty
+// verifica se dado valor é propriedade direta do objeto
+var objHas = {
+	lastname: "Menezes"
+};
+
+console.log('É propriedade? ',objHas.hasOwnProperty('lastname'));
+
+
+
+// isPrototypeOf
+// verifica se objeto é prototipo de um dado objeto
+var isProto = {};
+console.log('É prototype? ',Object.prototype.isPrototypeOf(isProto));
+
+
 })();
