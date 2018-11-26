@@ -70,6 +70,7 @@ Object.defineProperty(objDef, 'name', {
 mostrarNaTela("O nome é: " + objDef.name);
 
 
+
 var objGet = {
 	_name: "WELISON"
 };
@@ -119,6 +120,7 @@ console.log(Object.entries(objEnt));
 
 // freeze
 // congela o objeto impedindo que nova propriedades sejam adicionadas ou deletadas
+// can read
 var objFree = {
 	name: "welison",
 	idade: 30
@@ -129,6 +131,41 @@ Object.freeze(objFree);
 objFree.endereco = "Rua tal";
 delete objFree.name;
 console.log(objFree);
+
+// isFrozen (verifica se o objeto está congelado)
+console.log('Está congelado? ',Object.isFrozen(objFree));
+
+
+
+// seal
+// sela um dado objeto
+// can read and update
+var sealed = {
+	name: "josé"
+};
+sealed.age = 15;
+Object.seal(sealed);
+sealed.address = "Rua de tal";
+console.log(sealed);
+
+// isSealed
+// verifica se o dado objeto está selado
+Object.isSealed(sealed);
+
+
+
+// preventExtensions
+// impede que o dado objeto seja extendido
+// can read, update and delete
+var nonExtensible = {
+	removable: true
+};
+Object.preventExtensions(nonExtensible);
+nonExtensible.name = "welison";
+console.log(nonExtensible);
+
+// isExtensible (verifica se o objeto pode ser extendido)
+console.log('É extensível? ',Object.isExtensible(nonExtensible));
 
 
 
@@ -143,6 +180,41 @@ console.log(descObj);
 var descObjs = Object.getOwnPropertyDescriptors(objDefs);
 console.log(descObjs);
 
+
+
+// getOwnPropertyNames
+// retorna o nome das propriedades de um dado objeto
+var objPN = {
+	a: 1,
+	b: 2,
+	c: 3
+};
+console.log(Object.getOwnPropertyNames(objPN));
+
+
+
+// keys
+// retorna um array de chaves de propriedade enumeráveis de um dado array ou objeto
+var arrKeys = ['a', 'b', 'c'];
+console.log(Object.keys(arrKeys));
+
+var objKeys = { 0: 'a', 1: 'b', 2: 'c' };
+console.log(Object.keys(objKeys));
+
+
+
+
+// getPrototypeOf
+// retorna o prototype de um dado objeto
+console.log(Object.getPrototypeOf(objPN));
+
+
+
+// is
+// compara se dois valores são realmente iguais
+console.log(Object.is('foo', 'foo'));
+console.log(Object.is([], []));
+console.log(Object.is({}, {}));
 
 
 })();
