@@ -88,4 +88,61 @@ objGet.name = "WILSON";
 mostrarNaTela("O nome de get é: " + objGet.name);
 
 
+
+// defineProperties
+// define e configura várias propriedades para um dado objeto
+var objDefs = {};
+Object.defineProperties(objDefs, {
+	'property1': {
+		value: true,
+		writable: true,
+		enumerable: true
+	},
+	'property2': {
+		value: 'Hello',
+		writable: false
+	}
+});
+console.log(objDefs);
+
+
+
+// entries
+// retorna um array de pares [key, valor] dos elementos enumeráveis
+var objEnt = {
+	foo: 'bar',
+	baz: 42
+};
+console.log(Object.entries(objEnt));
+
+
+
+// freeze
+// congela o objeto impedindo que nova propriedades sejam adicionadas ou deletadas
+var objFree = {
+	name: "welison",
+	idade: 30
+};
+objFree.sexo = "masculino";
+console.log(objFree);
+Object.freeze(objFree);
+objFree.endereco = "Rua tal";
+delete objFree.name;
+console.log(objFree);
+
+
+
+
+// getOwnPropertyDescriptor
+// retorna o descritor da propriedade especificada
+var descObj = Object.getOwnPropertyDescriptor(objDefs, 'property1');
+console.log(descObj);
+
+// getOwnPropertyDescriptors
+// retorna os descritores de todas as propriedades de um dado objeto
+var descObjs = Object.getOwnPropertyDescriptors(objDefs);
+console.log(descObjs);
+
+
+
 })();
