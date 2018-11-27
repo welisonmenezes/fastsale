@@ -370,4 +370,91 @@ mostrarNaTela("O preço de venda agora é: " + venda.getPrice());
 
 
 
+
+
+// Estrategy
+
+var validator = {
+	types: {},
+	messages: [],
+	config: {},
+	validate: function(data){
+		var i, msg, type, checker, result_ok;
+
+		this.messages = [];
+
+		for(i in data){
+			if(data.hasOwnProperty(i)){
+				type = this.config[i];
+				if(!type){
+					continue;
+				}
+
+				checker = this.types[type];
+				if(!checker){
+					throw{
+						name: "ValidatonError",
+						message: "Não é capaz de validar o tipo: " + type
+					};
+				}
+
+				result_ok = checker.validate(data[i]);
+				if(!result_ok){
+					msg = "Invalid value for "+ i +", "+ checker.instructions;
+					this.messages.push(msg);
+				}
+			}
+		}
+		return this.hasErrors();
+	},
+	hasErrors: function(){
+		return this.messages.length !== 0;
+	}
+};
+
+validator.types.isNonEmpty = {
+	validate: function(value){
+		return value !== "";
+	},
+	instructions: "O valor não pode ser vazio"
+};
+
+validator.types.isNumber = {
+	validate: function(value){
+		return !isNaN(value);
+	},
+	instructions: "O valor deve ser um número"
+};
+
+validator.types.isAlphaNum = {
+	validate: function(value){
+		return !/[^a-z0-9]/i.test(value);
+	},
+	instructions: "O valor não permite caracteres especiais"
+};
+
+
+
+validator.config = {
+	first_name: "isNonEmpty",
+	age: "isNumber",
+	username: "isAlphaNum",
+	email: "isEmail"
+};
+var data = {
+	first_name: "Super",
+	last_name:"Man",
+	age: "unknown",
+	username: "$Clarck"
+};
+validator.validate(data);
+if(validator.hasErrors()){
+	console.log(validator.messages.join("\n"));
+}
+
+
+
+
+
+
 }());
